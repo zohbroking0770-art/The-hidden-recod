@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Hidden Record — इतिहास की अनकही सच्चाई</title>
+<meta name="description" content="India ki sabse badi investigative news website - scams, suppressed documents, judicial failures, electoral corruption.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
 
 :root {
   --red: #c0392b;
-  --dark-red: #922b21;
   --ink: #111827;
   --body: #374151;
   --muted: #6b7280;
@@ -18,613 +18,173 @@
   --bg2: #f9fafb;
   --bg3: #f3f4f6;
   --gold: #92400e;
-  --tag-bg: #fef3c7;
-  --tag-color: #92400e;
 }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter','Noto Sans Devanagari',sans-serif; color:var(--ink); background:var(--bg); font-size:15px; line-height:1.6; }
+a { text-decoration:none; color:inherit; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* TICKER */
+.ticker-bar { background:var(--red); color:white; height:34px; display:flex; align-items:center; overflow:hidden; font-size:12.5px; }
+.ticker-label { background:#8b0000; padding:0 14px; height:100%; display:flex; align-items:center; font-weight:700; letter-spacing:1.5px; font-size:11px; white-space:nowrap; flex-shrink:0; }
+.ticker-track { overflow:hidden; flex:1; }
+.ticker-inner { display:inline-flex; animation:tickerMove 60s linear infinite; white-space:nowrap; }
+.ticker-inner span { padding:0 40px; }
+@keyframes tickerMove { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-body {
-  font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
-  color: var(--ink);
-  background: var(--bg);
-  font-size: 15px;
-  line-height: 1.6;
-}
+/* TOP BAR */
+.top-bar { background:var(--bg); border-bottom:1px solid var(--border); padding:0 20px; display:flex; justify-content:space-between; align-items:center; height:38px; font-size:12px; color:var(--muted); }
 
-a { text-decoration: none; color: inherit; }
+/* MASTHEAD */
+.masthead { border-bottom:3px solid var(--ink); padding:16px 24px 14px; }
+.masthead-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; }
+.masthead-left { font-size:11px; color:var(--muted); line-height:1.6; }
+.site-name { font-family:'Libre Baskerville',serif; font-size:clamp(28px,4vw,48px); font-weight:700; letter-spacing:-1px; line-height:1; text-align:center; }
+.site-name .the { color:var(--red); font-style:italic; }
+.site-tagline { font-size:10.5px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-top:5px; text-align:center; }
+.masthead-right { text-align:right; font-size:11px; color:var(--muted); line-height:1.6; }
 
-/* ─── TICKER ─── */
-.ticker-bar {
-  background: var(--red);
-  color: white;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  font-size: 12.5px;
-}
-.ticker-label {
-  background: #8b0000;
-  padding: 0 14px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  font-size: 11px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.ticker-track {
-  overflow: hidden;
-  flex: 1;
-}
-.ticker-inner {
-  display: inline-flex;
-  animation: tickerMove 50s linear infinite;
-  white-space: nowrap;
-}
-.ticker-inner span { padding: 0 40px; }
-.ticker-inner .dot { color: #ff9999; padding: 0; }
-@keyframes tickerMove {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+/* NAV */
+.section-nav { background:var(--ink); position:sticky; top:0; z-index:100; }
+.section-nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; overflow-x:auto; scrollbar-width:none; }
+.section-nav-inner::-webkit-scrollbar { display:none; }
+.nav-item { color:#d1d5db; font-size:12.5px; font-weight:500; letter-spacing:0.5px; padding:13px 16px; white-space:nowrap; cursor:pointer; border-bottom:3px solid transparent; transition:all 0.2s; }
+.nav-item:hover,.nav-item.active { color:white; border-bottom-color:var(--red); }
 
-/* ─── TOP NAV ─── */
-.top-bar {
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 38px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.top-bar-links { display: flex; gap: 20px; }
-.top-bar-links a:hover { color: var(--red); }
+/* PROGRESS */
+.read-progress { height:3px; background:var(--red); width:0%; transition:width 0.1s; position:fixed; top:0; left:0; z-index:999; }
 
-/* ─── MASTHEAD ─── */
-.masthead {
-  border-bottom: 3px solid var(--ink);
-  padding: 16px 24px 14px;
-}
-.masthead-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 16px;
-}
-.masthead-left { font-size: 11px; color: var(--muted); line-height: 1.6; }
-.masthead-center { text-align: center; }
-.site-name {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -1px;
-  line-height: 1;
-  color: var(--ink);
-}
-.site-name .the { color: var(--red); font-style: italic; }
-.site-tagline {
-  font-size: 10.5px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 5px;
-  font-family: 'Inter', sans-serif;
-}
-.masthead-right { text-align: right; font-size: 11px; color: var(--muted); line-height: 1.6; }
+/* PAGE */
+.page-wrap { max-width:1200px; margin:0 auto; padding:0 20px; }
 
-/* ─── SECTION NAV ─── */
-.section-nav {
-  background: var(--ink);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.section-nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.section-nav-inner::-webkit-scrollbar { display: none; }
-.nav-item {
-  color: #d1d5db;
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  padding: 13px 18px;
-  white-space: nowrap;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s;
-}
-.nav-item:hover, .nav-item.active {
-  color: white;
-  border-bottom-color: var(--red);
-}
-.nav-search {
-  margin-left: auto;
-  padding: 8px 16px;
-  color: #9ca3af;
-  font-size: 12px;
-  cursor: pointer;
-  white-space: nowrap;
-}
+/* HERO LEAD */
+.lead-story-section { border-bottom:1px solid var(--border); padding:28px 0; }
+.lead-grid { display:grid; grid-template-columns:1.6fr 1fr; gap:32px; align-items:start; }
+.lead-eyebrow { display:inline-block; background:var(--red); color:white; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:3px 9px; margin-bottom:12px; }
+.lead-headline { font-family:'Libre Baskerville',serif; font-size:clamp(22px,3vw,36px); font-weight:700; line-height:1.2; margin-bottom:12px; cursor:pointer; }
+.lead-headline:hover { color:var(--red); }
+.lead-deck { font-family:'Libre Baskerville',serif; font-style:italic; font-size:15px; color:var(--body); line-height:1.7; margin-bottom:14px; }
+.lead-meta { font-size:11.5px; color:var(--muted); display:flex; gap:12px; flex-wrap:wrap; }
+.lead-meta .byline { font-weight:600; color:var(--ink); }
+.lead-image { width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; cursor:pointer; }
+.lead-image-text { font-family:'Libre Baskerville',serif; font-size:clamp(36px,5vw,72px); font-weight:700; text-align:center; line-height:1; padding:20px; position:relative; z-index:1; user-select:none; }
+.lead-image-caption { position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); color:#ccc; font-size:11px; padding:8px 12px; }
 
-/* ─── READ PROGRESS ─── */
-.read-progress {
-  height: 3px;
-  background: var(--red);
-  width: 0%;
-  transition: width 0.1s linear;
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 999;
-}
+/* 4-COL STRIP */
+.four-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:2px solid var(--ink); padding-top:16px; margin-bottom:0; border-bottom:1px solid var(--border); padding-bottom:24px; }
+.strip-story { padding:0 20px; border-right:1px solid var(--border); cursor:pointer; }
+.strip-story:first-child { padding-left:0; }
+.strip-story:last-child { border-right:none; }
+.strip-story:hover .strip-title { color:var(--red); }
+.strip-tag { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:5px; }
+.strip-title { font-family:'Libre Baskerville',serif; font-size:14px; font-weight:700; line-height:1.35; margin-bottom:5px; transition:color 0.2s; }
+.strip-meta { font-size:11px; color:var(--muted); }
 
-/* ─── LAYOUT ─── */
-.page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+/* SECTION HEADER */
+.section-header { display:flex; align-items:center; gap:12px; padding:28px 0 16px; border-bottom:2px solid var(--ink); margin-bottom:20px; }
+.section-header h2 { font-family:'Libre Baskerville',serif; font-size:17px; font-weight:700; white-space:nowrap; }
+.section-header .sh-rule { flex:1; height:1px; background:var(--border); }
+.section-header .sh-tag { background:var(--red); color:white; font-size:10px; font-weight:700; letter-spacing:1px; padding:2px 8px; text-transform:uppercase; }
 
-/* ─── LEAD STORY ─── */
-.lead-story-section {
-  border-bottom: 1px solid var(--border);
-  padding: 28px 0;
-}
-.lead-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 32px;
-  align-items: start;
-}
-.lead-main {}
-.lead-eyebrow {
-  display: inline-block;
-  background: var(--red);
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  margin-bottom: 12px;
-}
-.lead-headline {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(24px, 3vw, 38px);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 12px;
-  color: var(--ink);
-}
-.lead-headline:hover { color: var(--red); cursor: pointer; }
-.lead-deck {
-  font-size: 15.5px;
-  color: var(--body);
-  line-height: 1.7;
-  margin-bottom: 14px;
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-}
-.lead-meta {
-  font-size: 11.5px;
-  color: var(--muted);
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.lead-meta .byline { font-weight: 600; color: var(--ink); }
-.lead-image {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.lead-image-overlay {
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(
-    45deg, transparent, transparent 10px,
-    rgba(255,255,255,0.015) 10px, rgba(255,255,255,0.015) 20px
-  );
-}
-.lead-image-text {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(40px, 6vw, 80px);
-  color: rgba(255,255,255,0.06);
-  font-weight: 700;
-  text-align: center;
-  line-height: 1;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
-  user-select: none;
-}
-.lead-image-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(0,0,0,0.7);
-  color: #ccc;
-  font-size: 11px;
-  padding: 8px 12px;
-}
+/* ARTICLE GRID */
+.article-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; padding-bottom:32px; }
+.article-card { border-bottom:1px solid var(--border); padding-bottom:20px; cursor:pointer; }
+.article-card:hover .ac-title { color:var(--red); }
+.ac-img { width:100%; aspect-ratio:16/9; background:var(--bg3); margin-bottom:12px; display:flex; align-items:center; justify-content:center; font-size:40px; }
+.ac-tag { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:6px; }
+.ac-title { font-family:'Libre Baskerville',serif; font-size:15px; font-weight:700; line-height:1.35; margin-bottom:7px; transition:color 0.2s; }
+.ac-summary { font-size:12.5px; color:var(--muted); line-height:1.6; margin-bottom:8px; }
+.ac-meta { font-size:11px; color:var(--muted); }
 
-/* ─── SIDE STORIES ─── */
-.side-stories { display: flex; flex-direction: column; gap: 0; }
-.side-story {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-}
-.side-story:last-child { border-bottom: none; }
-.side-story:hover .side-title { color: var(--red); }
-.side-tag {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 5px;
-}
-.side-title {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--ink);
-  transition: color 0.2s;
-  margin-bottom: 5px;
-}
-.side-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
-.side-meta { font-size: 11px; color: var(--muted); margin-top: 6px; }
+/* 2-COL LAYOUT */
+.two-col { display:grid; grid-template-columns:2fr 1fr; gap:32px; padding-bottom:40px; }
+.sidebar-story { padding:14px 0; border-bottom:1px solid var(--border); cursor:pointer; }
+.sidebar-story:hover .ss-title { color:var(--red); }
+.ss-tag { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:4px; }
+.ss-title { font-family:'Libre Baskerville',serif; font-size:14px; font-weight:700; line-height:1.3; margin-bottom:4px; transition:color 0.2s; }
+.ss-meta { font-size:11px; color:var(--muted); }
+.sidebar-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:0; }
 
-/* ─── SECTION DIVIDERS ─── */
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 28px 0 16px;
-  border-bottom: 2px solid var(--ink);
-  margin-bottom: 20px;
-}
-.section-header h2 {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0;
-  white-space: nowrap;
-}
-.section-header .sh-rule { flex: 1; height: 1px; background: var(--border); }
-.section-header .sh-more {
-  font-size: 11px;
-  color: var(--red);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-  cursor: pointer;
-}
-.section-header .sh-more:hover { text-decoration: underline; }
+/* TIMELINE */
+.tl-item { display:flex; gap:20px; border-bottom:1px solid var(--border); padding:16px 0; opacity:0; transform:translateY(16px); transition:opacity 0.5s ease,transform 0.5s ease; }
+.tl-item.visible { opacity:1; transform:translateY(0); }
+.tl-year { min-width:56px; font-family:'Libre Baskerville',serif; font-size:20px; font-weight:700; color:var(--red); line-height:1.2; padding-top:2px; }
+.tl-title { font-weight:700; font-size:14px; margin-bottom:4px; }
+.tl-text { font-size:13px; color:var(--muted); line-height:1.6; }
+.tl-source { font-size:11px; color:#aaa; margin-top:4px; font-style:italic; }
 
-/* ─── ARTICLE GRID ─── */
-.article-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding-bottom: 32px;
-}
-.article-card {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 20px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-.article-card:hover { opacity: 0.8; }
-.article-card:hover .ac-title { color: var(--red); }
-.ac-img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: var(--bg3);
-  margin-bottom: 12px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ac-img-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-}
-.ac-tag {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 6px;
-}
-.ac-title {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.35;
-  margin-bottom: 7px;
-  color: var(--ink);
-  transition: color 0.2s;
-}
-.ac-summary { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
-.ac-meta { font-size: 11px; color: var(--muted); }
+/* SCAM TABLE */
+.scam-table { width:100%; border-collapse:collapse; margin-bottom:32px; font-size:14px; }
+.scam-table th { background:var(--ink); color:white; padding:10px 14px; text-align:left; font-size:11px; letter-spacing:1px; text-transform:uppercase; }
+.scam-table td { padding:10px 14px; border-bottom:1px solid var(--border); }
+.scam-table tr:hover td { background:var(--bg2); }
+.scam-table .amount { font-weight:700; color:var(--red); }
 
-/* ─── FEATURED ARTICLE (full read) ─── */
-.featured-article {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  background: rgba(0,0,0,0.6);
-  overflow-y: auto;
-  padding: 40px 20px;
-  animation: fadeIn 0.3s ease;
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.featured-article.open { display: block; }
-.article-modal {
-  max-width: 760px;
-  margin: 0 auto;
-  background: white;
-  padding: 40px;
-  position: relative;
-}
-.modal-close {
-  position: absolute;
-  top: 16px; right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--muted);
-  background: none;
-  border: none;
-  line-height: 1;
-}
-.modal-close:hover { color: var(--red); }
-.modal-eyebrow {
-  display: inline-block;
-  background: var(--red);
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  margin-bottom: 14px;
-}
-.modal-headline {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 14px;
-}
-.modal-deck {
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-size: 16px;
-  color: var(--body);
-  line-height: 1.7;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 16px;
-  margin-bottom: 16px;
-}
-.modal-meta {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 24px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.modal-meta .byline { font-weight: 700; color: var(--ink); }
-.modal-body p {
-  font-size: 15px;
-  line-height: 1.85;
-  color: var(--body);
-  margin-bottom: 18px;
-}
-.modal-body h3 {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 28px 0 12px;
-  color: var(--ink);
-  border-left: 3px solid var(--red);
-  padding-left: 12px;
-}
-.modal-body blockquote {
-  border-left: 3px solid var(--gold);
-  padding: 12px 16px;
-  margin: 20px 0;
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-size: 16px;
-  color: #555;
-  background: #fffbf0;
-}
-.modal-body .source-box {
-  background: var(--ink);
-  color: #d1d5db;
-  font-size: 12px;
-  padding: 12px 16px;
-  margin: 20px 0;
-  border-left: 4px solid var(--red);
-  line-height: 1.8;
-}
-.modal-body .source-box strong { color: white; }
-.modal-tag {
-  display: inline-block;
-  background: var(--tag-bg);
-  color: var(--tag-color);
-  font-size: 10.5px;
-  font-weight: 600;
-  padding: 3px 10px;
-  margin: 2px;
-  border-radius: 2px;
-}
+/* FACT GRID */
+.fact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:40px; }
+.fact-box { padding:16px; border:1px solid var(--border); }
+.fact-box.verified { border-top:3px solid #16a34a; }
+.fact-box.alleged { border-top:3px solid #d97706; }
+.fact-box.false { border-top:3px solid var(--red); }
+.fact-verdict { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+.fact-box.verified .fact-verdict { color:#16a34a; }
+.fact-box.alleged .fact-verdict { color:#d97706; }
+.fact-box.false .fact-verdict { color:var(--red); }
+.fact-claim { font-size:14px; font-weight:600; margin-bottom:6px; line-height:1.4; }
+.fact-explanation { font-size:12.5px; color:var(--muted); line-height:1.6; }
 
-/* ─── TIMELINE SECTION ─── */
-.timeline-section { padding: 0 0 40px; }
-.tl-item {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 0;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  border-bottom: 1px solid var(--border);
-  padding: 16px 0;
-}
-.tl-item.visible { opacity: 1; transform: translateY(0); }
-.tl-year {
-  min-width: 56px;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--red);
-  line-height: 1.2;
-  padding-top: 2px;
-}
-.tl-content {}
-.tl-title {
-  font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 4px;
-  color: var(--ink);
-}
-.tl-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.tl-source { font-size: 11px; color: #aaa; margin-top: 4px; font-style: italic; }
+/* OPINION */
+.opinion-box { background:var(--ink); color:white; padding:32px; margin:0 0 32px; }
+.opinion-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:12px; font-weight:700; }
+.opinion-text { font-family:'Libre Baskerville',serif; font-size:clamp(17px,2.5vw,22px); font-style:italic; line-height:1.5; color:#f3f4f6; margin-bottom:12px; }
+.opinion-attribution { font-size:12px; color:#9ca3af; }
 
-/* ─── OPINION / ANALYSIS BOX ─── */
-.opinion-box {
-  background: var(--ink);
-  color: white;
-  padding: 32px;
-  margin: 0 0 32px;
-}
-.opinion-label {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-.opinion-text {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-style: italic;
-  line-height: 1.5;
-  color: #f3f4f6;
-  margin-bottom: 12px;
-}
-.opinion-attribution { font-size: 12px; color: #9ca3af; letter-spacing: 0.5px; }
+/* MODAL */
+.featured-article { display:none; position:fixed; inset:0; z-index:500; background:rgba(0,0,0,0.65); overflow-y:auto; padding:40px 20px; animation:fadeIn 0.3s ease; }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.featured-article.open { display:block; }
+.article-modal { max-width:760px; margin:0 auto; background:white; padding:40px; position:relative; }
+.modal-close { position:absolute; top:16px; right:20px; font-size:24px; cursor:pointer; color:var(--muted); background:none; border:none; line-height:1; }
+.modal-close:hover { color:var(--red); }
+.modal-eyebrow { display:inline-block; background:var(--red); color:white; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:3px 9px; margin-bottom:14px; }
+.modal-headline { font-family:'Libre Baskerville',serif; font-size:clamp(20px,3vw,30px); font-weight:700; line-height:1.25; margin-bottom:14px; }
+.modal-deck { font-family:'Libre Baskerville',serif; font-style:italic; font-size:15px; color:var(--body); line-height:1.7; border-bottom:1px solid var(--border); padding-bottom:16px; margin-bottom:16px; }
+.modal-meta { font-size:12px; color:var(--muted); margin-bottom:24px; }
+.modal-meta .byline { font-weight:700; color:var(--ink); }
+.modal-body p { font-size:15px; line-height:1.85; color:var(--body); margin-bottom:18px; }
+.modal-body h3 { font-family:'Libre Baskerville',serif; font-size:17px; font-weight:700; margin:24px 0 10px; border-left:3px solid var(--red); padding-left:12px; }
+.modal-body blockquote { border-left:3px solid var(--gold); padding:12px 16px; margin:20px 0; font-family:'Libre Baskerville',serif; font-style:italic; font-size:15px; color:#555; background:#fffbf0; }
+.modal-body .source-box { background:var(--ink); color:#d1d5db; font-size:12px; padding:12px 16px; margin:20px 0; border-left:4px solid var(--red); line-height:1.8; }
+.modal-body .source-box strong { color:white; }
+.modal-tag { display:inline-block; background:#fef3c7; color:#92400e; font-size:10.5px; font-weight:600; padding:3px 10px; margin:2px; }
 
-/* ─── FACT CHECK ─── */
-.fact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-.fact-box { padding: 20px; border: 1px solid var(--border); }
-.fact-box.verified { border-top: 3px solid #16a34a; }
-.fact-box.alleged { border-top: 3px solid #d97706; }
-.fact-box.false { border-top: 3px solid var(--red); }
-.fact-verdict {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.fact-box.verified .fact-verdict { color: #16a34a; }
-.fact-box.alleged .fact-verdict { color: #d97706; }
-.fact-box.false .fact-verdict { color: var(--red); }
-.fact-claim { font-size: 14px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
-.fact-explanation { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+/* FOOTER */
+.footer-top { background:var(--ink); color:#9ca3af; padding:40px 20px; }
+.footer-top-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
+.footer-brand .fn { font-family:'Libre Baskerville',serif; font-size:24px; font-weight:700; color:white; margin-bottom:8px; }
+.footer-brand .fn .the { color:var(--red); font-style:italic; }
+.footer-brand p { font-size:13px; line-height:1.7; }
+.footer-col h4 { color:white; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid #374151; }
+.footer-col li { font-size:13px; padding:4px 0; list-style:none; }
+.footer-bottom { background:#0a0a0a; color:#6b7280; text-align:center; padding:14px; font-size:12px; }
 
-/* ─── FOOTER ─── */
-.footer-top {
-  background: var(--ink);
-  color: #9ca3af;
-  padding: 40px 20px;
+@media(max-width:768px){
+  .masthead-inner{grid-template-columns:1fr;text-align:center}
+  .masthead-left,.masthead-right{display:none}
+  .lead-grid{grid-template-columns:1fr}
+  .four-strip{grid-template-columns:1fr 1fr}
+  .article-grid{grid-template-columns:1fr 1fr}
+  .two-col{grid-template-columns:1fr}
+  .fact-grid{grid-template-columns:1fr 1fr}
+  .footer-top-inner{grid-template-columns:1fr 1fr}
+  .article-modal{padding:24px 16px}
+  .top-bar{display:none}
 }
-.footer-top-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-}
-.footer-brand .fn {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 8px;
-}
-.footer-brand .fn .the { color: var(--red); font-style: italic; }
-.footer-brand p { font-size: 13px; line-height: 1.7; }
-.footer-col h4 {
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #374151;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { font-size: 13px; padding: 4px 0; }
-.footer-col li:hover { color: white; cursor: pointer; }
-.footer-bottom {
-  background: #0a0a0a;
-  color: #6b7280;
-  text-align: center;
-  padding: 14px;
-  font-size: 12px;
-}
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 768px) {
-  .masthead-inner { grid-template-columns: 1fr; text-align: center; gap: 4px; }
-  .masthead-left, .masthead-right { display: none; }
-  .lead-grid { grid-template-columns: 1fr; }
-  .article-grid { grid-template-columns: 1fr 1fr; }
-  .fact-grid { grid-template-columns: 1fr; }
-  .footer-top-inner { grid-template-columns: 1fr 1fr; }
-  .article-modal { padding: 24px 20px; }
-  .top-bar { display: none; }
-}
-@media (max-width: 480px) {
-  .article-grid { grid-template-columns: 1fr; }
-  .footer-top-inner { grid-template-columns: 1fr; }
+@media(max-width:480px){
+  .four-strip{grid-template-columns:1fr}
+  .article-grid{grid-template-columns:1fr}
+  .fact-grid{grid-template-columns:1fr}
+  .footer-top-inner{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -637,340 +197,392 @@ a { text-decoration: none; color: inherit; }
   <div class="ticker-label">⚑ BREAKING</div>
   <div class="ticker-track">
     <div class="ticker-inner">
-      <span>Nehru के classified letters आज भी public नहीं — British MPs ने release की demand की थी</span>
-      <span class="dot">◆</span>
-      <span>Mathai की memoir का "She" chapter — Government ने suppress करवाया</span>
-      <span class="dot">◆</span>
-      <span>Shastri ji की मौत का post-mortem report 60 साल बाद भी classified</span>
-      <span class="dot">◆</span>
-      <span>Sanjay Gandhi की मौत पर Indira का पहला सवाल: "घड़ी और चाबी कहाँ है?"</span>
-      <span class="dot">◆</span>
-      <span>Katherine Frank की biography में Indira Gandhi के 4 personal affairs documented</span>
-      <span class="dot">◆</span>
-      <span>Nehru के classified letters आज भी public नहीं — British MPs ने release की demand की थी</span>
-      <span class="dot">◆</span>
-      <span>Mathai की memoir का "She" chapter — Government ने suppress करवाया</span>
-      <span class="dot">◆</span>
-      <span>Shastri ji की मौत का post-mortem report 60 साल बाद भी classified</span>
-      <span class="dot">◆</span>
-      <span>Sanjay Gandhi की मौत पर Indira का पहला सवाल: "घड़ी और चाबी कहाँ है?"</span>
-      <span class="dot">◆</span>
-      <span>Katherine Frank की biography में Indira Gandhi के 4 personal affairs documented</span>
+      <span>2G Scam: ₹1.76 lakh crore ka nuksan — CAG confirmed</span>
+      <span>◆</span>
+      <span>Coalgate: ₹1.86 lakh crore — UPA ke 10 saal ka sabse bada scam</span>
+      <span>◆</span>
+      <span>Shastri ji ki maut ka post-mortem 60 saal baad bhi classified</span>
+      <span>◆</span>
+      <span>Mathai memoir ka "She" chapter aaj bhi suppress hai</span>
+      <span>◆</span>
+      <span>RTI se pata chala: Commonwealth Games mein ₹70,000 crore ka ghapla</span>
+      <span>◆</span>
+      <span>Indira Gandhi ne Emergency mein Cabinet ko bhi nahi bataya</span>
+      <span>◆</span>
+      <span>2G Scam: ₹1.76 lakh crore ka nuksan — CAG confirmed</span>
+      <span>◆</span>
+      <span>Coalgate: ₹1.86 lakh crore — UPA ke 10 saal ka sabse bada scam</span>
+      <span>◆</span>
+      <span>Shastri ji ki maut ka post-mortem 60 saal baad bhi classified</span>
+      <span>◆</span>
+      <span>Mathai memoir ka "She" chapter aaj bhi suppress hai</span>
+      <span>◆</span>
+      <span>RTI se pata chala: Commonwealth Games mein ₹70,000 crore ka ghapla</span>
     </div>
   </div>
 </div>
 
 <!-- TOP BAR -->
 <div class="top-bar">
-  <div class="top-bar-links">
-    <a href="#">Home</a>
-    <a href="#">Investigation</a>
-    <a href="#">Timeline</a>
-    <a href="#">Fact Check</a>
-    <a href="#">Sources</a>
+  <div style="display:flex;gap:20px;font-size:12px;">
+    <span style="cursor:pointer">Home</span>
+    <span style="cursor:pointer">Scam Files</span>
+    <span style="cursor:pointer">RTI Records</span>
+    <span style="cursor:pointer">Judicial</span>
+    <span style="cursor:pointer">Electoral</span>
+    <span style="cursor:pointer">Sources</span>
   </div>
-  <div id="liveClock" style="font-size:12px; color:#6b7280;"></div>
+  <div id="liveClock"></div>
 </div>
 
 <!-- MASTHEAD -->
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="masthead-left">
-      Historical Investigation<br>
-      Published Books & Archives
-    </div>
-    <div class="masthead-center">
+    <div class="masthead-left">Special Investigation · V2.0<br>Documented. Sourced. Verified.</div>
+    <div>
       <div class="site-name"><span class="the">The</span> Hidden Record</div>
-      <div class="site-tagline">इतिहास की अनकही सच्चाई — Documented. Sourced. Verified.</div>
+      <div class="site-tagline">इतिहास की अनकही सच्चाई — India's Investigative Archive</div>
     </div>
-    <div class="masthead-right">
-      Special Investigation<br>
-      Nehru–Gandhi Dynasty
-    </div>
+    <div class="masthead-right">5 Investigative Sections<br>100% Source-Backed</div>
   </div>
 </header>
 
-<!-- SECTION NAV -->
+<!-- NAV -->
 <nav class="section-nav">
   <div class="section-nav-inner">
-    <div class="nav-item active">Home</div>
-    <div class="nav-item">Nehru Era</div>
-    <div class="nav-item">Indira Files</div>
-    <div class="nav-item">Sanjay Mystery</div>
-    <div class="nav-item">Rajiv Years</div>
-    <div class="nav-item">Scam Decade</div>
-    <div class="nav-item">Fact Check</div>
-    <div class="nav-item">Sources</div>
-    <div class="nav-search">🔍 Search</div>
+    <div class="nav-item active" onclick="setNav(this)">🏠 Home</div>
+    <div class="nav-item" onclick="setNav(this);scrollTo('scams')">💰 Scam Files</div>
+    <div class="nav-item" onclick="setNav(this);scrollTo('rti')">📁 RTI Records</div>
+    <div class="nav-item" onclick="setNav(this);scrollTo('judicial')">⚖️ Judicial Failures</div>
+    <div class="nav-item" onclick="setNav(this);scrollTo('electoral')">🗳️ Electoral Corruption</div>
+    <div class="nav-item" onclick="setNav(this);scrollTo('nehru')">🕵️ Nehru-Gandhi Files</div>
+    <div class="nav-item" onclick="setNav(this);scrollTo('factcheck')">✅ Fact Check</div>
+    <div class="nav-item" onclick="setNav(this);scrollTo('timeline')">📅 Timeline</div>
   </div>
 </nav>
 
 <main>
-
-<!-- ─── LEAD STORY ─── -->
 <div class="page-wrap">
+
+<!-- LEAD STORY -->
 <div class="lead-story-section">
   <div class="lead-grid">
-    <div class="lead-main">
-      <span class="lead-eyebrow">Special Investigation</span>
-      <h1 class="lead-headline" onclick="openArticle('main')">
-        वो किताब जो सरकार ने दबा दी — Nehru के Personal Secretary का इकबाल
-      </h1>
-      <p class="lead-deck">
-        M.O. Mathai — 15 साल तक Jawaharlal Nehru के Personal Secretary — ने अपनी memoir में ऐसा लिखा कि GOI को पूरा chapter हटाना पड़ा। वो chapter आज भी published नहीं है।
-      </p>
-      <div class="lead-meta">
-        <span class="byline">The Hidden Record Investigation Desk</span>
-        <span>·</span>
-        <span>Historical Investigation</span>
-        <span>·</span>
-        <span>Source: Published Books</span>
-      </div>
-    </div>
     <div>
-      <div class="lead-image" onclick="openArticle('main')" style="cursor:pointer;">
-        <div class="lead-image-overlay"></div>
-        <div class="lead-image-text">CLASSIFIED</div>
-        <div class="lead-image-caption">📁 GOI-suppressed chapter — "She" — Mathai Memoir, 1978</div>
+      <span class="lead-eyebrow">Special Investigation — UPA Scam Era</span>
+      <h1 class="lead-headline" onclick="openArticle('coalgate')">
+        Coalgate: ₹1.86 Lakh Crore का वो घपला जिसने UPA को हिला दिया
+      </h1>
+      <p class="lead-deck">CAG ने confirm किया — 2004-2009 के बीच Coal blocks बिना auction के बाँटे गए। Loss: ₹1,86,000 crore। PM खुद Coal Ministry चला रहे थे।</p>
+      <div class="lead-meta">
+        <span class="byline">Investigation Desk</span><span>·</span>
+        <span>Source: CAG Report 2012</span><span>·</span><span>Supreme Court Records</span>
+      </div>
+    </div>
+    <div class="lead-image" onclick="openArticle('coalgate')" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69);cursor:pointer;">
+      <div class="lead-image-text" style="color:rgba(255,255,255,0.07)">₹1.86L CR</div>
+      <div class="lead-image-caption">📁 CAG Report 2012 — Coalgate Scam Documentation</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 STRIP -->
+<div class="four-strip">
+  <div class="strip-story" onclick="openArticle('2g')">
+    <div class="strip-tag">Scam Files</div>
+    <div class="strip-title">2G Scam: ₹1.76 Lakh Crore — India के इतिहास का सबसे बड़ा telecom घपला</div>
+    <div class="strip-meta">CAG · Supreme Court</div>
+  </div>
+  <div class="strip-story" onclick="openArticle('rti_suppressed')">
+    <div class="strip-tag">RTI Records</div>
+    <div class="strip-title">वो RTI जवाब जो सरकार ने देने से मना कर दिया — classified क्यों?</div>
+    <div class="strip-meta">RTI Archives</div>
+  </div>
+  <div class="strip-story" onclick="openArticle('ishrat')">
+    <div class="strip-tag">Judicial Failures</div>
+    <div class="strip-title">Ishrat Jahan Case: जब CBI ने अपने ही देश की सेना के खिलाफ chargesheet दाखिल की</div>
+    <div class="strip-meta">Court Records</div>
+  </div>
+  <div class="strip-story" onclick="openArticle('votebank')">
+    <div class="strip-tag">Electoral</div>
+    <div class="strip-title">Shah Bano से Babri Masjid तक — एक ही party ने दोनों communities को कैसे use किया</div>
+    <div class="strip-meta">Parliamentary Records</div>
+  </div>
+</div>
+
+<!-- ═══ SCAM FILES ═══ -->
+<div id="scams" style="padding-top:20px;">
+<div class="section-header">
+  <h2>💰 UPA Scam Files (2004–2014)</h2>
+  <div class="sh-rule"></div>
+  <div class="sh-tag">10 साल, 78 Scams</div>
+</div>
+
+<table class="scam-table">
+  <tr><th>Scam</th><th>साल</th><th>रकम</th><th>Status</th></tr>
+  <tr onclick="openArticle('coalgate')" style="cursor:pointer"><td><strong>Coalgate (Coal Blocks)</strong></td><td>2004–09</td><td class="amount">₹1,86,000 Cr</td><td>CAG Confirmed · SC ne blocks cancel kiye</td></tr>
+  <tr onclick="openArticle('2g')" style="cursor:pointer"><td><strong>2G Spectrum Scam</strong></td><td>2008</td><td class="amount">₹1,76,000 Cr</td><td>CAG Confirmed · A. Raja jailed</td></tr>
+  <tr><td><strong>MNREGA Corruption</strong></td><td>2006–14</td><td class="amount">₹10,000+ Cr</td><td>CAG + State Audit Reports</td></tr>
+  <tr onclick="openArticle('cwg')" style="cursor:pointer"><td><strong>Commonwealth Games</strong></td><td>2010</td><td class="amount">₹70,000 Cr</td><td>CBI Investigation · Kalmadi jailed</td></tr>
+  <tr onclick="openArticle('agusta')" style="cursor:pointer"><td><strong>AgustaWestland Helicopters</strong></td><td>2012</td><td class="amount">₹3,600 Cr</td><td>ED Investigation ongoing</td></tr>
+  <tr onclick="openArticle('vadra')" style="cursor:pointer"><td><strong>Robert Vadra–DLF Land Deal</strong></td><td>2008</td><td class="amount">₹300+ Cr</td><td>ED Case pending</td></tr>
+  <tr onclick="openArticle('nationalherald')" style="cursor:pointer"><td><strong>National Herald Case</strong></td><td>2012</td><td class="amount">₹2,000 Cr property</td><td>Sonia, Rahul on bail</td></tr>
+  <tr><td><strong>Adarsh Housing Scam</strong></td><td>2010</td><td class="amount">₹400+ Cr</td><td>CBI Case · Ex-CM resigned</td></tr>
+</table>
+
+<div class="article-grid">
+  <div class="article-card" onclick="openArticle('2g')">
+    <div class="ac-img">📡</div>
+    <div class="ac-tag">Telecom Scam</div>
+    <div class="ac-title">2G Scam: जब spectrum कौड़ियों के दाम बेचा गया</div>
+    <div class="ac-summary">Telecom Minister A. Raja ने 2008 में 2G licenses first-come-first-served basis पर बाँटे — auction नहीं किया। CAG ने ₹1.76 lakh crore का घाटा बताया।</div>
+    <div class="ac-meta">CAG Report · Supreme Court · A. Raja arrested</div>
+  </div>
+  <div class="article-card" onclick="openArticle('cwg')">
+    <div class="ac-img">🏟️</div>
+    <div class="ac-tag">Commonwealth Games</div>
+    <div class="ac-title">CWG 2010: जब दुनिया India देख रही थी, तब अंदर लूट हो रही थी</div>
+    <div class="ac-summary">₹70,000 crore का आयोजन। Inflated bills, ghost vendors, incomplete stadiums। Suresh Kalmadi जेल गए। India की international image को करारी चोट।</div>
+    <div class="ac-meta">CBI Investigation · Kalmadi arrested 2011</div>
+  </div>
+  <div class="article-card" onclick="openArticle('agusta')">
+    <div class="ac-img">🚁</div>
+    <div class="ac-tag">Defence Scam</div>
+    <div class="ac-title">AgustaWestland: VVIP helicopters और international kickbacks का जाल</div>
+    <div class="ac-summary">India ने 12 VVIP helicopters खरीदे। Italy में investigation शुरू हुई, India में भी। Middlemen, shell companies और करोड़ों की kickbacks।</div>
+    <div class="ac-meta">ED Investigation · Italy Court Records</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ RTI RECORDS ═══ -->
+<div id="rti" style="padding-top:20px;">
+<div class="section-header">
+  <h2>📁 RTI Records — जो सरकार छुपाती रही</h2>
+  <div class="sh-rule"></div>
+  <div class="sh-tag">Suppressed Documents</div>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="article-grid" style="grid-template-columns:1fr 1fr;padding-bottom:0;">
+      <div class="article-card" onclick="openArticle('rti_suppressed')">
+        <div class="ac-img">🗂️</div>
+        <div class="ac-tag">RTI Denied</div>
+        <div class="ac-title">Shastri ji का post-mortem — 60 साल बाद भी "classified"</div>
+        <div class="ac-summary">Multiple RTI applications filed। हर बार एक ही जवाब: classified। आखिर क्या है उस report में?</div>
+        <div class="ac-meta">RTI Applications · Historical Archives</div>
+      </div>
+      <div class="article-card" onclick="openArticle('nehru_letters')">
+        <div class="ac-img">✉️</div>
+        <div class="ac-tag">Classified Files</div>
+        <div class="ac-title">Nehru–Edwina Letters: British MPs ने माँगे, India ने deny किया</div>
+        <div class="ac-summary">हजारों personal letters — British Parliament में demand, Indian government में silence। क्यों?</div>
+        <div class="ac-meta">British Parliament Records · RTI</div>
+      </div>
+      <div class="article-card" onclick="openArticle('mathai')">
+        <div class="ac-img">📖</div>
+        <div class="ac-tag">Suppressed Book</div>
+        <div class="ac-title">Mathai Memoir का "She" Chapter — GOI ने suppress करवाया</div>
+        <div class="ac-summary">1978 में छपी किताब का एक chapter आज भी public नहीं। क्या था उस chapter में?</div>
+        <div class="ac-meta">Source: M.O. Mathai Memoir (1978)</div>
+      </div>
+      <div class="article-card" onclick="openArticle('emergency_files')">
+        <div class="ac-img">🔒</div>
+        <div class="ac-tag">Emergency Files</div>
+        <div class="ac-title">Emergency 1975 के classified files — अभी भी public नहीं</div>
+        <div class="ac-summary">Intelligence files, arrest orders, censorship directives — decades बाद भी fully declassified नहीं।</div>
+        <div class="ac-meta">RTI · National Archives</div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- SIDE STORIES under lead -->
-<div style="border-bottom: 1px solid var(--border); padding: 0 0 24px; margin-bottom: 0;">
-  <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 2px solid var(--ink); padding-top: 16px;">
-    <div class="side-story" style="padding-right:24px; border-right: 1px solid var(--border);" onclick="openArticle('edwina')">
-      <div class="side-tag">Nehru Files</div>
-      <div class="side-title">Edwina Mountbatten — वो हजारों letters जो आज भी classified हैं</div>
-      <div class="side-meta">Investigation Desk</div>
+  <div>
+    <div class="sidebar-label">📌 RTI Highlights</div>
+    <div class="sidebar-story" onclick="openArticle('pmcare')">
+      <div class="ss-tag">RTI Denied</div>
+      <div class="ss-title">PM CARES Fund — RTI denied, CAG audit नहीं</div>
+      <div class="ss-meta">2020 · Supreme Court</div>
     </div>
-    <div class="side-story" style="padding: 0 24px; border-right: 1px solid var(--border);" onclick="openArticle('indira')">
-      <div class="side-tag">Indira Files</div>
-      <div class="side-title">Katherine Frank की biography: Indira Gandhi के 4 documented affairs</div>
-      <div class="side-meta">Historical Records</div>
+    <div class="sidebar-story" onclick="openArticle('electoral_bond')">
+      <div class="ss-tag">Electoral</div>
+      <div class="ss-title">Electoral Bonds — Supreme Court ने unconstitutional बताया</div>
+      <div class="ss-meta">SC Judgment 2024</div>
     </div>
-    <div class="side-story" style="padding: 0 24px; border-right: 1px solid var(--border);" onclick="openArticle('sanjay')">
-      <div class="side-tag">Mystery</div>
-      <div class="side-title">Sanjay Gandhi की मौत — "घड़ी और चाबी कहाँ है?" — Indira का पहला सवाल</div>
-      <div class="side-meta">Archival Investigation</div>
+    <div class="sidebar-story" onclick="openArticle('netaji')">
+      <div class="ss-tag">Classified</div>
+      <div class="ss-title">Netaji Subhas Bose files — 1947 से classified, Nehru ने क्यों छुपाया?</div>
+      <div class="ss-meta">National Archives · RTI</div>
     </div>
-    <div class="side-story" style="padding-left:24px;" onclick="openArticle('shastri')">
-      <div class="side-tag">Unsolved</div>
-      <div class="side-title">Lal Bahadur Shastri — post-mortem आज भी classified, 60 साल बाद</div>
-      <div class="side-meta">RTI Records</div>
+    <div class="sidebar-story" onclick="openArticle('1984files')">
+      <div class="ss-tag">1984 Files</div>
+      <div class="ss-title">1984 Sikh Narasanhar — Intelligence files आज भी seal</div>
+      <div class="ss-meta">MHA Records · SIT Report</div>
+    </div>
+    <div class="sidebar-story" onclick="openArticle('bofors_files')">
+      <div class="ss-tag">Bofors</div>
+      <div class="ss-title">Bofors files: Congress सरकार ने case क्यों कमज़ोर किया?</div>
+      <div class="ss-meta">CBI Records · Swedish Investigation</div>
     </div>
   </div>
 </div>
+</div>
 
-<!-- ─── ARTICLES SECTION ─── -->
+<!-- ═══ JUDICIAL FAILURES ═══ -->
+<div id="judicial" style="padding-top:20px;">
 <div class="section-header">
-  <h2>📂 Latest Investigations</h2>
+  <h2>⚖️ Judicial Failures — जब न्याय नहीं मिला</h2>
   <div class="sh-rule"></div>
-  <div class="sh-more">Full Archive →</div>
+  <div class="sh-tag">System की कमियाँ</div>
 </div>
 
 <div class="article-grid">
-  <div class="article-card" onclick="openArticle('brahmachari')">
-    <div class="ac-img"><div class="ac-img-inner">🔱</div></div>
-    <div class="ac-tag">Indira Files</div>
-    <div class="ac-title">Dhirendra Brahmachari: वो Baba जो PM House में रहता था और private jets उड़ाता था</div>
-    <div class="ac-summary">Indira Gandhi के yoga teacher जो सरकारी संरक्षण में arms factory चलाते थे — Doordarshan पर weekly show भी था।</div>
-    <div class="ac-meta">Special Report · Book: "The Emergency" — Coomi Kapoor</div>
+  <div class="article-card" onclick="openArticle('ishrat')">
+    <div class="ac-img">🔫</div>
+    <div class="ac-tag">Controversial Case</div>
+    <div class="ac-title">Ishrat Jahan Case: UPA के दौर में CBI ने IB officers को क्यों घेरा?</div>
+    <div class="ac-summary">2004 Gujarat encounter। UPA government के दौर में CBI chargesheet। Intelligence officers पर aarop। Opposition ने कहा — राजनीतिक साजिश।</div>
+    <div class="ac-meta">CBI Records · Court Documents</div>
   </div>
-
-  <div class="article-card" onclick="openArticle('padmaja')">
-    <div class="ac-img"><div class="ac-img-inner">🖼️</div></div>
-    <div class="ac-tag">Nehru Files</div>
-    <div class="ac-title">Padmaja Naidu: वो portrait जो Indira Gandhi बार-बार bedroom से हटाती थीं</div>
-    <div class="ac-summary">Nehru ने Sarojini Naidu की बेटी का portrait अपने bedroom में रखा — और उन्हें Bengal का Governor बनाया।</div>
-    <div class="ac-meta">Historical Investigation · Source: M.O. Mathai Memoir</div>
+  <div class="article-card" onclick="openArticle('1984justice')">
+    <div class="ac-img">🕯️</div>
+    <div class="ac-tag">Delayed Justice</div>
+    <div class="ac-title">1984: 40 साल, 3000+ जानें, अभी भी पूरा इंसाफ नहीं</div>
+    <div class="ac-summary">Tytler, Sajjan Kumar — decades तक बचते रहे। Congress के दौर में CBI ने case कमज़ोर रखा। SIT 2015 में बनी। Justice अधूरा।</div>
+    <div class="ac-meta">SIT Reports · Court Records</div>
   </div>
-
-  <div class="article-card" onclick="openArticle('feroze')">
-    <div class="ac-img"><div class="ac-img-inner">📜</div></div>
-    <div class="ac-tag">Dynasty Files</div>
-    <div class="ac-title">Feroze "Gandhi" — नाम बदलने की वो कहानी जो official history में नहीं है</div>
-    <div class="ac-summary">Rajiv Gandhi के पिता का असल नाम Feroze Khan था। Mahatma Gandhi के कहने पर एक affidavit से नाम बदला गया।</div>
-    <div class="ac-meta">Documentary Evidence · Multiple Historical Sources</div>
-  </div>
-
-  <div class="article-card" onclick="openArticle('emergency')">
-    <div class="ac-img"><div class="ac-img-inner">⚠️</div></div>
-    <div class="ac-tag">Emergency 1975</div>
-    <div class="ac-title">Emergency की वो रात — Cabinet को बताए बिना, अकेले Indira ने लोकतंत्र बंद किया</div>
-    <div class="ac-summary">25 June 1975 — रात को President के पास application गई। Cabinet को सुबह पता चला। देश की जनता को अखबार में।</div>
-    <div class="ac-meta">Book: "The Emergency" — Coomi Kapoor (2015)</div>
-  </div>
-
-  <div class="article-card" onclick="openArticle('kashmir')">
-    <div class="ac-img"><div class="ac-img-inner">🏔️</div></div>
-    <div class="ac-tag">Nehru Blunders</div>
-    <div class="ac-title">Kashmir: UN में ले जाने की वो गलती जो Patel ने रोकने की कोशिश की थी</div>
-    <div class="ac-summary">Sardar Patel ने Nehru को मना किया था। Nehru ने नहीं माना। Kashmir का ज़ख्म आज भी नासूर है।</div>
-    <div class="ac-meta">Book: "India After Gandhi" — Ramachandra Guha</div>
-  </div>
-
-  <div class="article-card" onclick="openArticle('bofors')">
-    <div class="ac-img"><div class="ac-img-inner">💰</div></div>
-    <div class="ac-tag">Scam Files</div>
-    <div class="ac-title">Bofors: जब Sweden से $64 million की rishwat आई और Rajiv Gandhi की सरकार गिरी</div>
-    <div class="ac-summary">Swedish Radio की एक report ने पूरे India को हिला दिया। 1989 में Congress हार गई। Case आज भी पूरी तरह resolve नहीं।</div>
-    <div class="ac-meta">Swedish Radio Investigation · CAG Reports</div>
+  <div class="article-card" onclick="openArticle('bhopal')">
+    <div class="ac-img">☁️</div>
+    <div class="ac-tag">Bhopal Gas</div>
+    <div class="ac-title">Bhopal Gas Tragedy: Anderson को India से भागने दिया — कौन था जिम्मेदार?</div>
+    <div class="ac-summary">1984 में 15,000+ मौतें। Warren Anderson को जमानत मिली, देश छोड़ने दिया गया। 40 साल बाद भी पूरा न्याय नहीं।</div>
+    <div class="ac-meta">CBI Case · Congressional Records USA</div>
   </div>
 </div>
 
-<!-- ─── TIMELINE ─── -->
-<div class="section-header">
-  <h2>📅 Chronology of Concealment</h2>
-  <div class="sh-rule"></div>
-  <div class="sh-more">Full Timeline →</div>
-</div>
-
-<div class="timeline-section">
-  <div class="tl-item">
-    <div class="tl-year">1947</div>
-    <div class="tl-content">
-      <div class="tl-title">Partition — Edwina के साथ closeness और India के strategic faisale</div>
-      <div class="tl-text">Kashmir UN में, Patel की सलाह ignore, Mountbatten का India पर असाधारण प्रभाव — critics का मानना है personal relationships ने national decisions को affect किया।</div>
-      <div class="tl-source">Ref: "Indian Summer" — Alex von Tunzelmann (2007)</div>
-    </div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">1957</div>
-    <div class="tl-content">
-      <div class="tl-title">Mathai Memoir — "She" Chapter suppress हुआ</div>
-      <div class="tl-text">M.O. Mathai की किताब प्रकाशित हुई लेकिन एक chapter — जिसका title "She" था — को GOI के दबाव में हटाया गया। वो chapter आज तक published नहीं।</div>
-      <div class="tl-source">Ref: "Reminiscences of the Nehru Age" — M.O. Mathai (1978)</div>
-    </div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">1966</div>
-    <div class="tl-content">
-      <div class="tl-title">Lal Bahadur Shastri — Tashkent में रहस्यमय मृत्यु</div>
-      <div class="tl-text">Pakistan deal sign करने के घंटों बाद death। Body पर नीले निशान। Patni ने "natural death" नहीं माना। Post-mortem आज भी classified। Congress ने investigation नहीं करवाई।</div>
-      <div class="tl-source">Ref: Lalita Shastri statements · RTI filings</div>
-    </div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">1975</div>
-    <div class="tl-content">
-      <div class="tl-title">Emergency — लोकतंत्र की हत्या, सिर्फ एक कुर्सी बचाने के लिए</div>
-      <div class="tl-text">25 June रात बिना Cabinet की सलाह Emergency घोषित। Sanjay Gandhi बिना कोई elected post के practically PM। Forced sterilization, media censorship, political prisoners।</div>
-      <div class="tl-source">Ref: "The Emergency" — Coomi Kapoor (2015)</div>
-    </div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">1980</div>
-    <div class="tl-content">
-      <div class="tl-title">Sanjay Gandhi की Plane Crash — Accident या कुछ और?</div>
-      <div class="tl-text">23 June — Delhi में plane crash। Indira का पहला reaction: "घड़ी और चाबी कहाँ है?" Mohammed Yunus का रोना। Incomplete inquiry। रहस्य आज भी बरकरार।</div>
-      <div class="tl-source">Ref: "Persons, Passions & Politics" — Mohammed Yunus</div>
-    </div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">1984</div>
-    <div class="tl-content">
-      <div class="tl-title">Operation Bluestar — Congress का पाला हुआ राक्षस</div>
-      <div class="tl-text">Indira ने खुद Bhindranwale को Akali Dal के खिलाफ support किया था। वही Bhindranwale Golden Temple तक पहुँचा। Operation हुआ। Indira की हत्या हुई। 3000+ Sikhs जले।</div>
-      <div class="tl-source">Ref: "Indira" — Katherine Frank (2001)</div>
-    </div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">1989</div>
-    <div class="tl-content">
-      <div class="tl-title">Bofors — Sweden से $64 Million की Kickback और Congress की हार</div>
-      <div class="tl-text">Swedish Radio ने expose किया। Rajiv Gandhi पर सीधे आरोप। 1989 elections में Congress हारी। Case decades तक चला। पूरा सच आज भी सामने नहीं आया।</div>
-      <div class="tl-source">Ref: Swedish Radio Investigation · CAG Reports</div>
-    </div>
-  </div>
-</div>
-
-<!-- OPINION BOX -->
 <div class="opinion-box">
-  <div class="opinion-label">Editor's Note</div>
-  <div class="opinion-text">"इतिहास वो नहीं जो textbooks में लिखा है — इतिहास वो है जो suppress किया गया, classified रखा गया, और जनता से छुपाया गया।"</div>
-  <div class="opinion-attribution">— The Hidden Record, Investigation Desk</div>
+  <div class="opinion-label">Analysis</div>
+  <div class="opinion-text">"जब सत्ता और न्याय एक ही party के हाथ में दशकों तक रहे — तो न्याय selective हो जाता है।"</div>
+  <div class="opinion-attribution">— The Hidden Record, Judicial Desk</div>
+</div>
 </div>
 
-<!-- ─── FACT CHECK ─── -->
+<!-- ═══ ELECTORAL CORRUPTION ═══ -->
+<div id="electoral" style="padding-top:20px;">
 <div class="section-header">
-  <h2>✅ Fact Check: क्या Verified है, क्या नहीं</h2>
+  <h2>🗳️ Electoral Corruption — Vote Bank Politics का खेल</h2>
+  <div class="sh-rule"></div>
+  <div class="sh-tag">Documented Records</div>
+</div>
+
+<div class="article-grid">
+  <div class="article-card" onclick="openArticle('votebank')">
+    <div class="ac-img">🕌</div>
+    <div class="ac-tag">Vote Bank Politics</div>
+    <div class="ac-title">Shah Bano से Babri तक: Congress ने कैसे दोनों communities को use किया</div>
+    <div class="ac-summary">1986: Shah Bano case पलटा — Muslim vote के लिए। 1986: Babri Masjid के ताले खुलवाए — Hindu vote के लिए। एक ही साल, दोनों communities का exploitation।</div>
+    <div class="ac-meta">Parliamentary Records · Supreme Court</div>
+  </div>
+  <div class="article-card" onclick="openArticle('electoral_bond')">
+    <div class="ac-img">💳</div>
+    <div class="ac-tag">SC Judgment 2024</div>
+    <div class="ac-title">Electoral Bonds: Supreme Court ने unconstitutional बताया — donor कौन थे?</div>
+    <div class="ac-summary">₹16,000 crore से ज्यादा के bonds। Supreme Court ने 2024 में scheme cancel की। SBI को donor list देनी पड़ी। क्या निकला?</div>
+    <div class="ac-meta">SC Judgment 2024 · Election Commission</div>
+  </div>
+  <div class="article-card" onclick="openArticle('narasimha_bribe')">
+    <div class="ac-img">💵</div>
+    <div class="ac-tag">Parliament Bribery</div>
+    <div class="ac-title">Narasimha Rao: MPs को rishwat देकर सरकार बचाई — JMM Bribery Case</div>
+    <div class="ac-summary">1993 no-confidence vote। JMM MPs को cash दिए गए — यह allegation नहीं, court में documented case है। Congress PM का इससे connection।</div>
+    <div class="ac-meta">Supreme Court Case · Parliament Records</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ NEHRU-GANDHI FILES ═══ -->
+<div id="nehru" style="padding-top:20px;">
+<div class="section-header">
+  <h2>🕵️ Nehru–Gandhi Dynasty Files</h2>
+  <div class="sh-rule"></div>
+  <div class="sh-tag">Books & Archives</div>
+</div>
+
+<div class="article-grid">
+  <div class="article-card" onclick="openArticle('mathai')">
+    <div class="ac-img">📖</div>
+    <div class="ac-tag">Suppressed Memoir</div>
+    <div class="ac-title">M.O. Mathai: वो Secretary जिसने सब देखा — और वो chapter जो छप नहीं सका</div>
+    <div class="ac-summary">15 साल Nehru के साथ। जो देखा, लिखा। लेकिन "She" chapter को GOI ने suppress करवाया। 1978 से आज तक published नहीं।</div>
+    <div class="ac-meta">Book: Reminiscences of the Nehru Age (1978)</div>
+  </div>
+  <div class="article-card" onclick="openArticle('nehru_letters')">
+    <div class="ac-img">✉️</div>
+    <div class="ac-tag">Classified Letters</div>
+    <div class="ac-title">Nehru–Edwina: हजारों letters, Partition के दौरान, आज भी classified</div>
+    <div class="ac-summary">1947 से 1960 तक letter exchange। Edwina ने खुद "love letters" बताया। British MPs ने release माँगी। Denied।</div>
+    <div class="ac-meta">Andrew Lownie (2019) · Alex von Tunzelmann (2007)</div>
+  </div>
+  <div class="article-card" onclick="openArticle('indira_personal')">
+    <div class="ac-img">👤</div>
+    <div class="ac-tag">Biography</div>
+    <div class="ac-title">Indira Gandhi: Katherine Frank की biography में documented 4 relationships</div>
+    <div class="ac-summary">Award-winning biographer की research। Dhirendra Brahmachari — PM House में, private jet के साथ, arms factory भी।</div>
+    <div class="ac-meta">Katherine Frank · ISBN: 9780007259304</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ TIMELINE ═══ -->
+<div id="timeline" style="padding-top:20px;">
+<div class="section-header">
+  <h2>📅 Master Timeline: 1947–2024</h2>
+  <div class="sh-rule"></div>
+</div>
+
+<div style="padding-bottom:40px;">
+  <div class="tl-item"><div class="tl-year">1947</div><div><div class="tl-title">Partition + Kashmir UN blunder + Nehru-Edwina closeness</div><div class="tl-text">Patel की सलाह ignore। Kashmir UN में। हजारों letters Edwina को। Strategic decisions पर personal relationships का असर — allegation, proof नहीं।</div><div class="tl-source">Ref: Indian Summer — Alex von Tunzelmann (2007)</div></div></div>
+  <div class="tl-item"><div class="tl-year">1962</div><div><div class="tl-title">China से शर्मनाक हार — Nehru की Forward Policy की विफलता</div><div class="tl-text">China ने warning दी थी। Nehru और Defence Minister Krishna Menon ने ignore किया। India बुरी तरह हारा। America-Britain से military madad माँगनी पड़ी।</div><div class="tl-source">Ref: India After Gandhi — Ramachandra Guha (2007)</div></div></div>
+  <div class="tl-item"><div class="tl-year">1966</div><div><div class="tl-title">Lal Bahadur Shastri की रहस्यमय मृत्यु — post-mortem आज भी classified</div><div class="tl-text">Tashkent में deal के घंटों बाद मौत। Body पर नीले निशान। Patni ने natural death नहीं माना। Congress ने investigate नहीं करवाया।</div><div class="tl-source">Ref: RTI filings · Lalita Shastri statements</div></div></div>
+  <div class="tl-item"><div class="tl-year">1975</div><div><div class="tl-title">Emergency — Cabinet को बताए बिना लोकतंत्र बंद</div><div class="tl-text">25 June रात। Forced sterilization। Media censorship। Sanjay Gandhi बिना post के शासन। 1977 में Congress बुरी तरह हारी।</div><div class="tl-source">Ref: The Emergency — Coomi Kapoor (2015)</div></div></div>
+  <div class="tl-item"><div class="tl-year">1984</div><div><div class="tl-title">Operation Bluestar + 3000+ Sikhs का नरसंहार + Bhopal Gas</div><div class="tl-text">Bhindranwale को Congress ने खुद support किया था। Operation के बाद Indira की हत्या। Delhi में Congress workers ने Sikhs को जलाया। उसी साल Bhopal में Anderson को भगाया।</div><div class="tl-source">Ref: Indira — Katherine Frank · Court Records</div></div></div>
+  <div class="tl-item"><div class="tl-year">1987</div><div><div class="tl-title">Bofors Scam — Sweden से $64 million की kickback</div><div class="tl-text">Swedish Radio ने expose किया। Rajiv Gandhi पर direct allegations। 1989 में Congress हारी। Case decades तक चला। पूरा सच सामने नहीं आया।</div><div class="tl-source">Ref: Swedish Radio · CAG Reports</div></div></div>
+  <div class="tl-item"><div class="tl-year">1993</div><div><div class="tl-title">JMM Bribery — Parliament में MPs को cash देकर सरकार बचाई</div><div class="tl-text">No-confidence motion। JMM MPs को rishwat। Narasimha Rao का connection। Supreme Court case। India की parliamentary history का शर्मनाक chapter।</div><div class="tl-source">Ref: Supreme Court Records · Parliament Archives</div></div></div>
+  <div class="tl-item"><div class="tl-year">2008</div><div><div class="tl-title">2G Scam — ₹1.76 lakh crore का telecom घपला</div><div class="tl-text">A. Raja ने auction की जगह first-come-first-served। CAG ने ₹1.76 lakh crore का loss बताया। Supreme Court ने licenses cancel किए। Raja arrested।</div><div class="tl-source">Ref: CAG Report 2008 · Supreme Court Judgment</div></div></div>
+  <div class="tl-item"><div class="tl-year">2010</div><div><div class="tl-title">Coalgate + Commonwealth Games — double scam साल</div><div class="tl-text">CWG में ₹70,000 crore। Coal blocks बिना auction। PM खुद Coal Minister। दुनिया के सामने India की छवि खराब हुई।</div><div class="tl-source">Ref: CAG Reports · CBI Chargesheet</div></div></div>
+  <div class="tl-item"><div class="tl-year">2024</div><div><div class="tl-title">Electoral Bonds — Supreme Court ने unconstitutional बताया</div><div class="tl-text">₹16,000 crore से ज्यादा। Transparency zero। SC ने cancel किया। SBI को donor list देनी पड़ी। Political funding का सबसे बड़ा controversy।</div><div class="tl-source">Ref: Supreme Court Judgment Feb 2024</div></div></div>
+</div>
+</div>
+
+<!-- FACT CHECK -->
+<div id="factcheck" style="padding-top:20px;">
+<div class="section-header">
+  <h2>✅ Fact Check Panel</h2>
   <div class="sh-rule"></div>
 </div>
 
 <div class="fact-grid">
-  <div class="fact-box verified">
-    <div class="fact-verdict">✓ Verified — Books में documented</div>
-    <div class="fact-claim">Nehru-Edwina के बीच हजारों personal letters</div>
-    <div class="fact-explanation">दोनों ने खुद acknowledge किया। Edwina ने letters अपने पति को दिखाए। Letters आज भी classified हैं।</div>
-  </div>
-  <div class="fact-box verified">
-    <div class="fact-verdict">✓ Verified — Books में documented</div>
-    <div class="fact-claim">Mathai memoir का "She" chapter suppress हुआ</div>
-    <div class="fact-explanation">GOI के दबाव में chapter हटाया गया। Mathai ने खुद इसका ज़िक्र किया। आज भी published नहीं।</div>
-  </div>
-  <div class="fact-box verified">
-    <div class="fact-verdict">✓ Verified — Katherine Frank Biography</div>
-    <div class="fact-claim">Indira Gandhi के multiple personal affairs</div>
-    <div class="fact-explanation">Award-winning biographer Katherine Frank की documented research। ISBN: 9780007259304।</div>
-  </div>
-  <div class="fact-box verified">
-    <div class="fact-verdict">✓ Verified — RTI & Historical Record</div>
-    <div class="fact-claim">Shastri की मौत का post-mortem आज भी classified</div>
-    <div class="fact-explanation">RTI filings से confirmed। 60 साल बाद भी official report public नहीं। Patni ने natural death नहीं माना।</div>
-  </div>
-  <div class="fact-box alleged">
-    <div class="fact-verdict">? Alleged — Evidence अधूरा</div>
-    <div class="fact-claim">Nehru-Edwina का "full physical affair"</div>
-    <div class="fact-explanation">Letters में romantic language है लेकिन "spiritual" भी कहा गया। Historians divided हैं। Conclusive proof नहीं।</div>
-  </div>
-  <div class="fact-box false">
-    <div class="fact-verdict">✗ False — Propaganda</div>
-    <div class="fact-claim">"Nehru Muslim थे" या "Gandhi family Muslim है"</div>
-    <div class="fact-explanation">यह historically incorrect है। Feroze Gandhi Parsi background से थे। यह claim political propaganda है — सच नहीं।</div>
-  </div>
+  <div class="fact-box verified"><div class="fact-verdict">✓ CAG Confirmed</div><div class="fact-claim">2G Scam में ₹1.76 lakh crore का loss</div><div class="fact-explanation">CAG Report 2008 में documented। SC ने licenses cancel किए। A. Raja arrested।</div></div>
+  <div class="fact-box verified"><div class="fact-verdict">✓ SC Confirmed</div><div class="fact-claim">Electoral Bonds unconstitutional थे</div><div class="fact-explanation">February 2024 में Supreme Court ने scheme cancel की। Unanimous judgment।</div></div>
+  <div class="fact-box verified"><div class="fact-verdict">✓ RTI Confirmed</div><div class="fact-claim">Shastri ji का post-mortem आज भी classified</div><div class="fact-explanation">Multiple RTI filings में confirm हुआ। 60 साल बाद भी report public नहीं।</div></div>
+  <div class="fact-box verified"><div class="fact-verdict">✓ Books में Documented</div><div class="fact-claim">Mathai Memoir का "She" chapter suppress हुआ</div><div class="fact-explanation">GOI pressure में chapter हटाया गया। Mathai ने खुद acknowledge किया।</div></div>
+  <div class="fact-box alleged"><div class="fact-verdict">? Alleged</div><div class="fact-claim">Nehru-Edwina का "physical affair"</div><div class="fact-explanation">Letters में romantic language है लेकिन "spiritual" भी कहा गया। Historians divided।</div></div>
+  <div class="fact-box false"><div class="fact-verdict">✗ False — Propaganda</div><div class="fact-claim">"Gandhi family Muslim है"</div><div class="fact-explanation">Feroze Gandhi Parsi background से थे। यह claim political propaganda है — historically incorrect।</div></div>
+</div>
 </div>
 
-<!-- SOURCES SECTION -->
-<div class="section-header">
-  <h2>📚 Primary Sources & References</h2>
-  <div class="sh-rule"></div>
-</div>
-<div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 48px;">
-  <div style="padding:16px; border:1px solid var(--border); border-left:3px solid var(--red);">
-    <div style="font-size:11px; color:var(--muted); margin-bottom:4px;">MEMOIR</div>
-    <div style="font-weight:700; font-size:14px; margin-bottom:4px;">"Reminiscences of the Nehru Age"</div>
-    <div style="font-size:13px; color:var(--muted);">M.O. Mathai · ISBN: 9780706906219</div>
-  </div>
-  <div style="padding:16px; border:1px solid var(--border); border-left:3px solid var(--red);">
-    <div style="font-size:11px; color:var(--muted); margin-bottom:4px;">BIOGRAPHY</div>
-    <div style="font-weight:700; font-size:14px; margin-bottom:4px;">"The Life of Indira Nehru Gandhi"</div>
-    <div style="font-size:13px; color:var(--muted);">Katherine Frank · ISBN: 9780007259304</div>
-  </div>
-  <div style="padding:16px; border:1px solid var(--border); border-left:3px solid var(--red);">
-    <div style="font-size:11px; color:var(--muted); margin-bottom:4px;">INVESTIGATION</div>
-    <div style="font-weight:700; font-size:14px; margin-bottom:4px;">"The Emergency"</div>
-    <div style="font-size:13px; color:var(--muted);">Coomi Kapoor · 2015</div>
-  </div>
-  <div style="padding:16px; border:1px solid var(--border); border-left:3px solid var(--red);">
-    <div style="font-size:11px; color:var(--muted); margin-bottom:4px;">HISTORY</div>
-    <div style="font-weight:700; font-size:14px; margin-bottom:4px;">"Indian Summer"</div>
-    <div style="font-size:13px; color:var(--muted);">Alex von Tunzelmann · 2007</div>
-  </div>
-  <div style="padding:16px; border:1px solid var(--border); border-left:3px solid var(--red);">
-    <div style="font-size:11px; color:var(--muted); margin-bottom:4px;">BIOGRAPHY</div>
-    <div style="font-weight:700; font-size:14px; margin-bottom:4px;">"The Mountbattens"</div>
-    <div style="font-size:13px; color:var(--muted);">Andrew Lownie · 2019</div>
-  </div>
-  <div style="padding:16px; border:1px solid var(--border); border-left:3px solid var(--red);">
-    <div style="font-size:11px; color:var(--muted); margin-bottom:4px;">HISTORY</div>
-    <div style="font-weight:700; font-size:14px; margin-bottom:4px;">"India After Gandhi"</div>
-    <div style="font-size:13px; color:var(--muted);">Ramachandra Guha · 2007</div>
-  </div>
+<!-- SOURCES -->
+<div class="section-header"><h2>📚 Primary Sources</h2><div class="sh-rule"></div></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:48px;">
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">CAG REPORT</div><strong>Coalgate & 2G Reports</strong><br><span style="color:var(--muted)">CAG of India · 2008, 2012</span></div>
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">MEMOIR</div><strong>Reminiscences of the Nehru Age</strong><br><span style="color:var(--muted)">M.O. Mathai · 1978</span></div>
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">BIOGRAPHY</div><strong>The Life of Indira Gandhi</strong><br><span style="color:var(--muted)">Katherine Frank · 2001</span></div>
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">HISTORY</div><strong>India After Gandhi</strong><br><span style="color:var(--muted)">Ramachandra Guha · 2007</span></div>
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">INVESTIGATION</div><strong>The Emergency</strong><br><span style="color:var(--muted)">Coomi Kapoor · 2015</span></div>
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">HISTORY</div><strong>Indian Summer</strong><br><span style="color:var(--muted)">Alex von Tunzelmann · 2007</span></div>
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">BIOGRAPHY</div><strong>The Mountbattens</strong><br><span style="color:var(--muted)">Andrew Lownie · 2019</span></div>
+  <div style="padding:14px;border:1px solid var(--border);border-left:3px solid var(--red);font-size:13px;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px">SC JUDGMENT</div><strong>Electoral Bonds Case</strong><br><span style="color:var(--muted)">Supreme Court · Feb 2024</span></div>
 </div>
 
-</div><!-- end page-wrap -->
+</div>
 </main>
 
 <!-- FOOTER -->
@@ -979,46 +591,17 @@ a { text-decoration: none; color: inherit; }
     <div class="footer-top-inner">
       <div class="footer-brand">
         <div class="fn"><span class="the">The</span> Hidden Record</div>
-        <p>Historical investigation based entirely on published books, archived documents, and verified records. हम propaganda नहीं, documented facts present करते हैं।</p>
+        <p>India की investigative archive। हर claim का source। हर fact verified। Propaganda नहीं — documented history।<br><br>Educational purpose only. Based entirely on published books, CAG reports, Supreme Court records, and RTI responses.</p>
       </div>
-      <div class="footer-col">
-        <h4>Sections</h4>
-        <ul>
-          <li>Nehru Era</li>
-          <li>Indira Files</li>
-          <li>Sanjay Mystery</li>
-          <li>Rajiv Years</li>
-          <li>Scam Decade</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li>Book References</li>
-          <li>Timeline</li>
-          <li>Fact Check</li>
-          <li>RTI Records</li>
-          <li>Archives</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>About</h4>
-        <ul>
-          <li>Our Mission</li>
-          <li>Editorial Policy</li>
-          <li>Source Verification</li>
-          <li>Disclaimer</li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>Sections</h4><ul><li>💰 Scam Files</li><li>📁 RTI Records</li><li>⚖️ Judicial Failures</li><li>🗳️ Electoral</li><li>🕵️ Dynasty Files</li></ul></div>
+      <div class="footer-col"><h4>Sources</h4><ul><li>CAG Reports</li><li>Supreme Court</li><li>RTI Records</li><li>Published Books</li><li>Parliament Archives</li></ul></div>
+      <div class="footer-col"><h4>About</h4><ul><li>Our Mission</li><li>Editorial Policy</li><li>Source Verification</li><li>Fact Check Policy</li><li>Disclaimer</li></ul></div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <strong style="color:#9ca3af;">The Hidden Record</strong> · इतिहास की अनकही सच्चाई ·
-    All content based on published, verifiable sources · Educational Purpose Only
-  </div>
+  <div class="footer-bottom"><strong style="color:#9ca3af">The Hidden Record v2.0</strong> · इतिहास की अनकही सच्चाई · All content based on published, verifiable sources · Educational Purpose Only</div>
 </footer>
 
-<!-- ─── ARTICLE MODALS ─── -->
+<!-- MODAL -->
 <div class="featured-article" id="modal" onclick="closeIfBg(event)">
   <div class="article-modal" id="modalContent">
     <button class="modal-close" onclick="closeArticle()">✕</button>
@@ -1028,271 +611,55 @@ a { text-decoration: none; color: inherit; }
 
 <script>
 // Clock
-function updateClock() {
-  const el = document.getElementById('liveClock');
-  if (el) el.textContent = new Date().toLocaleString('hi-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit' });
-}
-updateClock(); setInterval(updateClock, 1000);
+function updateClock(){const e=document.getElementById('liveClock');if(e)e.textContent=new Date().toLocaleString('hi-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});}
+updateClock();setInterval(updateClock,1000);
 
-// Progress bar
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  document.getElementById('rp').style.width = pct + '%';
-});
+// Progress
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('rp').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});
 
-// Nav active
-document.querySelectorAll('.nav-item').forEach(n => {
-  n.addEventListener('click', function() {
-    document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
+// Nav
+function setNav(el){document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));el.classList.add('active');}
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
 
 // Timeline animation
-const io = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); }
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.tl-item').forEach(el => io.observe(el));
+const io=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});},{threshold:0.15});
+document.querySelectorAll('.tl-item').forEach(el=>io.observe(el));
 
-// Articles data
-const articles = {
-  main: {
-    eyebrow: 'Special Investigation',
-    headline: 'वो किताब जो सरकार ने दबा दी — Nehru के Personal Secretary का इकबाल',
-    deck: 'M.O. Mathai की memoir में एक पूरा chapter "She" था — जिसे GOI ने suppress करवाया। 1978 से आज तक वो chapter published नहीं हुआ।',
-    meta: 'Investigation Desk · Source: M.O. Mathai, "Reminiscences of the Nehru Age"',
-    body: `<p>Jawaharlal Nehru के 15 साल के Personal Secretary M.O. Mathai ने अपनी जिंदगी का एक बड़ा हिस्सा India के पहले Prime Minister के साथ बिताया। जो कुछ उन्होंने देखा, सुना और जाना — उसे उन्होंने लिखा।</p>
-    <h3>वो किताब जो "suppress" हुई</h3>
-    <p>1978 में Mathai की memoir "Reminiscences of the Nehru Age" प्रकाशित हुई। लेकिन publish होने से पहले ही एक chapter — जिसका title था "She" — हटाया जा चुका था। Mathai ने खुद इसका ज़िक्र किया।</p>
-    <blockquote>"Nehru की Edwina के साथ closeness इतनी publicly visible थी कि Indira Gandhi खुद Maulana Abul Kalam Azad से मिन्नत करती थीं — अपने पिता को थोड़ा discreet रहने के लिए।"</blockquote>
-    <h3>Edwina Mountbatten — letters जो आज भी classified हैं</h3>
-    <p>Nehru और Edwina के बीच हजारों letters का आदान-प्रदान हुआ — जो Edwina की मृत्यु 1960 तक जारी रहा। Edwina ने 1952 में खुद अपने पति Mountbatten को कुछ letters दिखाए।</p>
-    <blockquote>"कुछ letters purely informational हैं — लेकिन कुछ एक तरह के love letters हैं। हमारे बीच एक अजीब रिश्ता था, ज्यादातर spiritual।" — Edwina Mountbatten (documented in Andrew Lownie's research)</blockquote>
-    <p>British MPs ने इन letters को public करने की demand की थी। वो demand आज भी पूरी नहीं हुई।</p>
-    <h3>Padmaja Naidu — और वो portrait</h3>
-    <p>Mathai की memoir में यह भी documented है कि Nehru Padmaja Naidu (Sarojini Naidu की बेटी) का portrait अपने bedroom में रखते थे। Indira Gandhi जब भी वहाँ आतीं — वो portrait हटा देती थीं। Padmaja को बाद में West Bengal का Governor नियुक्त किया गया।</p>
-    <div class="source-box"><strong>📚 Primary Sources:</strong><br>
-    • "Reminiscences of the Nehru Age" — M.O. Mathai (ISBN: 9780706906219)<br>
-    • "The Mountbattens" — Andrew Lownie (2019)<br>
-    • "Indian Summer" — Alex von Tunzelmann (2007)</div>
-    <p><span class="modal-tag">Documented</span> <span class="modal-tag">Books</span> <span class="modal-tag">Nehru Era</span> <span class="modal-tag">Historical</span></p>`
-  },
-  indira: {
-    eyebrow: 'Indira Files',
-    headline: 'Katherine Frank की biography: Indira Gandhi के 4 personal affairs — documented',
-    deck: 'Award-winning biographer Katherine Frank की research में Indira Gandhi की personal life के वो पहलू जो official history में नहीं आए।',
-    meta: 'Source: "The Life of Indira Nehru Gandhi" — Katherine Frank (ISBN: 9780007259304)',
-    body: `<p>Katherine Frank एक award-winning British biographer हैं। उनकी Indira Gandhi पर लिखी biography को internationally acclaimed माना जाता है और यह published, verifiable sources पर based है।</p>
-    <h3>चार documented affairs</h3>
-    <p>Frank की research के अनुसार Indira Gandhi की personal life में चार significant relationships थे:</p>
-    <p><strong>1. Shantiniketan के German teacher</strong> — Indira की पहली emotional attachment, जब वो Shantiniketan में पढ़ रही थीं और घर से दूर, अकेली थीं।</p>
-    <p><strong>2. M.O. Mathai</strong> — वही Mathai जो Nehru के Personal Secretary थे और जिन्होंने बाद में memoir लिखी।</p>
-    <p><strong>3. Dhirendra Brahmachari</strong> — Indira के yoga teacher, जो PM House में रहते थे। इनकी story अलग से documented है।</p>
-    <p><strong>4. Dinesh Singh</strong> — तत्कालीन Foreign Minister, जो Indira के करीबी political circle में थे।</p>
-    <h3>Dhirendra Brahmachari — सबसे controversial</h3>
-    <p>Dhirendra Brahmachari की story सबसे चौंकाने वाली है। एक yoga teacher जो Indira Gandhi की "छाँव" में इतना powerful हो गया:</p>
-    <blockquote>PM House में permanent residence · Private jet · Doordarshan पर weekly yoga show · Jammu में arms manufacturing facility · Government land grants</blockquote>
-    <p>Rajiv Gandhi के PM बनने के बाद उनकी power कम हुई। 1994 में एक plane crash में उनकी मृत्यु हुई।</p>
-    <div class="source-box"><strong>📚 Primary Sources:</strong><br>
-    • "The Life of Indira Nehru Gandhi" — Katherine Frank (ISBN: 9780007259304)<br>
-    • "The Emergency" — Coomi Kapoor (2015)<br>
-    • Press Trust of India archival reports</div>`
-  },
-  sanjay: {
-    eyebrow: 'Mystery Files',
-    headline: 'Sanjay Gandhi की मौत: "घड़ी और चाबी कहाँ है?" — Indira का पहला सवाल',
-    deck: '23 June 1980 को Sanjay Gandhi की plane crash हुई। Indira Gandhi की पहली reaction ने historians को दशकों तक सोचने पर मजबूर किया।',
-    meta: 'Source: "Persons, Passions & Politics" — Mohammed Yunus | Archival Records',
-    body: `<p>23 June 1980 की सुबह Delhi में Sanjay Gandhi एक stunt aircraft उड़ा रहे थे। Willingdon Airport के पास plane crash हुई। Sanjay Gandhi की मृत्यु हो गई।</p>
-    <h3>वो पहला सवाल</h3>
-    <p>Documented accounts के अनुसार, जब Indira Gandhi को अपने बेटे की मृत्यु की सूचना मिली — उनका पहला reaction था:</p>
-    <blockquote>"उनकी चाबी और घड़ी कहाँ हैं?"</blockquote>
-    <p>एक माँ का पहला सवाल यह क्यों था? Historians आज भी पूछते हैं — क्या उन objects में कोई ऐसी information थी जो किसी के हाथ नहीं लगनी चाहिए थी?</p>
-    <h3>Mohammed Yunus का रोना</h3>
-    <p>Mohammed Yunus — Nehru के करीबी और Congress के वरिष्ठ नेता — Sanjay की मृत्यु पर सबसे ज्यादा रोए। उनकी अपनी किताब "Persons, Passions & Politics" में इस रिश्ते के कुछ hints हैं जो historians के लिए intriguing हैं।</p>
-    <h3>Incomplete Inquiry</h3>
-    <p>Sanjay Gandhi की plane crash की official inquiry कभी पूरी तरह transparent नहीं हुई। Aircraft में क्या हुआ, pilot error था या mechanical failure — conclusive public report नहीं आई।</p>
-    <div class="source-box"><strong>📚 Primary Sources:</strong><br>
-    • "Persons, Passions & Politics" — Mohammed Yunus (ISBN-10: 0706910176)<br>
-    • Archival newspaper records (June-July 1980)<br>
-    • "The Emergency" — Coomi Kapoor (2015)</div>`
-  },
-  shastri: {
-    eyebrow: 'Unsolved Files',
-    headline: 'Lal Bahadur Shastri: post-mortem report 60 साल बाद भी classified',
-    deck: 'Pakistan के साथ Tashkent Declaration sign करने के घंटों बाद India के PM की मौत। Official: heart attack। लेकिन सवाल आज भी जिंदा हैं।',
-    meta: 'RTI Records · Lalita Shastri Statements · Historical Archives',
-    body: `<p>11 January 1966 — Tashkent, USSR। Lal Bahadur Shastri ने कुछ घंटे पहले ही Pakistan के साथ Tashkent Declaration sign किया था, जिससे 1965 की लड़ाई खत्म हुई।</p>
-    <h3>वो रात</h3>
-    <p>देर रात Shastri ji की तबीयत खराब हुई। सुबह उनकी मृत्यु की घोषणा हुई। Official cause: heart attack।</p>
-    <h3>जो सवाल उठे</h3>
-    <p>Shastri ji की पत्नी Lalita Shastri ने publicly कहा कि उन्हें official "natural death" version पर भरोसा नहीं। उनके अनुसार Shastri ji के body पर नीले निशान थे।</p>
-    <blockquote>"मुझे नहीं पता मेरे पति को क्या हुआ। जो बताया गया वो मुझे सच नहीं लगता।" — Lalita Shastri (documented statements)</blockquote>
-    <h3>Classified Post-Mortem</h3>
-    <p>Official post-mortem report आज — 60 साल बाद भी — public नहीं की गई। RTI filings में यही जवाब मिला: classified।</p>
-    <p>Congress सरकार, जो उस समय power में थी और दशकों तक रही, ने कभी independent investigation नहीं करवाई।</p>
-    <div class="source-box"><strong>📚 Sources:</strong><br>
-    • Lalita Shastri के documented public statements<br>
-    • RTI filings (multiple years)<br>
-    • "India After Gandhi" — Ramachandra Guha (2007)</div>`
-  },
-  edwina: {
-    eyebrow: 'Nehru Files',
-    headline: 'Edwina Mountbatten और Nehru — वो हजारों letters जो आज भी classified हैं',
-    deck: 'India के पहले PM और Last Viceroy की पत्नी के बीच एक ऐसा रिश्ता जो Partition के दौरान भी चला — और 1960 तक letters के रूप में जारी रहा।',
-    meta: 'Source: "The Mountbattens" — Andrew Lownie (2019) | "Indian Summer" — Alex von Tunzelmann',
-    body: `<p>Louis Mountbatten India के Last Viceroy थे। उनकी पत्नी Edwina Mountbatten एक remarkable, independent personality की महिला थीं। Jawaharlal Nehru से उनकी पहली मुलाकात 1947 में हुई।</p>
-    <h3>हजारों letters</h3>
-    <p>1947 से 1960 तक — Edwina की मृत्यु तक — दोनों के बीच हजारों letters का आदान-प्रदान हुआ। यह documented fact है।</p>
-    <blockquote>Edwina ने 1952 में अपने पति को कुछ letters दिखाए और describe किया: "कुछ purely informational हैं, कुछ love letters जैसे हैं — हमारा रिश्ता spiritual था।"</blockquote>
-    <h3>Partition पर असर?</h3>
-    <p>Critics का कहना है कि इस personal connection ने Nehru को Mountbatten के फैसलों को challenge करने से रोका — Kashmir UN में जाना, Partition की जल्दबाजी, strategic decisions।</p>
-    <p>यह allegation है — prove नहीं। लेकिन historians इसे dismiss भी नहीं करते।</p>
-    <h3>Letters आज भी classified</h3>
-    <p>British Parliament में MPs ने इन letters को public करने की demand की। Denied। Indian government ने भी कभी इन पर transparency नहीं दिखाई।</p>
-    <div class="source-box"><strong>📚 Primary Sources:</strong><br>
-    • "The Mountbattens" — Andrew Lownie (2019)<br>
-    • "Indian Summer" — Alex von Tunzelmann (2007)<br>
-    • "Reminiscences of the Nehru Age" — M.O. Mathai</div>`
-  },
-  brahmachari: {
-    eyebrow: 'Indira Files',
-    headline: 'Dhirendra Brahmachari: PM House में रहने वाला Baba, private jets, arms factory',
-    deck: 'एक yoga teacher जो Indira Gandhi की नज़दीकी की वजह से इतना powerful हो गया कि government resources, land grants और TV show पाया।',
-    meta: 'Source: "The Emergency" — Coomi Kapoor | Press Investigations',
-    body: `<p>Dhirendra Brahmachari एक yoga teacher थे जो Indira Gandhi के बेहद करीब थे। उनकी यह closeness उन्हें unprecedented government privileges दिलाती रही।</p>
-    <h3>PM House में permanent resident</h3>
-    <p>Brahmachari PM House में रहते थे। यह किसी ordinary yoga teacher के लिए असंभव था — लेकिन Indira Gandhi की personal approval से यह संभव था।</p>
-    <h3>Doordarshan पर weekly show</h3>
-    <p>India के state-run TV channel Doordarshan पर उनका weekly yoga show था। यह government media का personal use था।</p>
-    <h3>Arms Manufacturing</h3>
-    <p>सबसे चौंकाने वाला fact — Jammu में उनके पास एक arms manufacturing facility थी। एक "spiritual teacher" के पास gun factory।</p>
-    <h3>Private Jet</h3>
-    <p>Government protection के साथ private air travel। इस सब का खर्च कौन उठाता था — यह कभी official record में नहीं आया।</p>
-    <p>Rajiv Gandhi के PM बनने के बाद Brahmachari की power घटी। 1994 में एक plane crash में उनकी मृत्यु हुई।</p>
-    <div class="source-box"><strong>📚 Sources:</strong><br>
-    • "The Emergency" — Coomi Kapoor (2015)<br>
-    • "The Life of Indira Nehru Gandhi" — Katherine Frank<br>
-    • Indian Express archival investigations</div>`
-  },
-  padmaja: {
-    eyebrow: 'Nehru Files',
-    headline: 'Padmaja Naidu: वो portrait जो Indira Gandhi बार-बार हटाती थीं',
-    deck: 'Sarojini Naidu की बेटी, Nehru की करीबी — और Bengal का Governorship। M.O. Mathai की memoir में documented।',
-    meta: 'Source: "Reminiscences of the Nehru Age" — M.O. Mathai',
-    body: `<p>Padmaja Naidu, Sarojini Naidu की बेटी थीं। Sarojini Naidu खुद भारतीय स्वतंत्रता आंदोलन की एक बड़ी नेता थीं।</p>
-    <h3>Mathai की Memoir में</h3>
-    <p>M.O. Mathai — Nehru के Personal Secretary — ने अपनी memoir में लिखा कि Nehru, Padmaja Naidu का portrait अपने bedroom में रखते थे।</p>
-    <blockquote>Indira Gandhi जब भी PM House में Nehru के कमरे में जातीं, वो portrait हटा देती थीं।</blockquote>
-    <h3>Bengal का Governorship</h3>
-    <p>Nehru ने Padmaja Naidu को West Bengal का Governor नियुक्त किया। Critics ने उस समय भी और बाद में भी यह सवाल उठाया कि यह appointment merit-based थी या personal relationship की वजह से।</p>
-    <div class="source-box"><strong>📚 Sources:</strong><br>
-    • "Reminiscences of the Nehru Age" — M.O. Mathai (ISBN: 9780706906219)</div>`
-  },
-  feroze: {
-    eyebrow: 'Dynasty Files',
-    headline: 'Feroze Gandhi का असली नाम — और वो affidavit जिसने नाम बदला',
-    deck: 'Rajiv Gandhi के पिता Feroze Khan थे। Mahatma Gandhi के कहने पर नाम "Gandhi" किया गया — खून का रिश्ता नहीं था।',
-    meta: 'Multiple Historical Sources · Documented Records',
-    body: `<p>यह भारतीय राजनीति की सबसे कम discussed लेकिन historically documented बात है: Nehru-Gandhi परिवार का Mahatma Gandhi से कोई खून का रिश्ता नहीं है।</p>
-    <h3>Feroze Khan से Feroze Gandhi</h3>
-    <p>Rajiv Gandhi के पिता का नाम Feroze Khan था। उनके पिता Nawab Khan, Gujarat के Junagadh area से थे। शादी से पहले Feroze ने legally एक affidavit के ज़रिए अपना नाम बदला।</p>
-    <h3>Mahatma Gandhi का role</h3>
-    <p>जब Indira और Feroze की शादी की खबर Mahatma Gandhi को मिली — उन्होंने Nehru से कहा कि Feroze का नाम Khan से Gandhi रखा जाए। यह image management था।</p>
-    <p>और इस तरह "Feroze Gandhi" नाम अस्तित्व में आया। "Gandhi" surname — Mahatma Gandhi की permission से, एक affidavit के ज़रिए।</p>
-    <h3>Important Clarification</h3>
-    <p>यह document करना ज़रूरी है: Feroze Gandhi Parsi background से थे, Muslim नहीं। "Nehru family Muslim है" वाला claim <strong>propaganda है — सच नहीं।</strong></p>
-    <div class="source-box"><strong>📚 Sources:</strong><br>
-    • Multiple historical biographies<br>
-    • "India After Gandhi" — Ramachandra Guha<br>
-    • Documented affidavit records</div>`
-  },
-  emergency: {
-    eyebrow: 'Emergency 1975',
-    headline: 'वो रात जब Cabinet को बताए बिना Indira ने लोकतंत्र बंद कर दिया',
-    deck: '25 June 1975 — रात को बिना किसी consultation के Emergency घोषित। Cabinet को सुबह पता चला। भारत का सबसे काला अध्याय।',
-    meta: 'Source: "The Emergency" — Coomi Kapoor (2015)',
-    body: `<p>25 June 1975 की रात इतिहास में हमेशा के लिए दर्ज है — वो रात जब भारत के लोकतंत्र को एक महिला की कुर्सी बचाने के लिए suspend किया गया।</p>
-    <h3>Background: Allahabad High Court</h3>
-    <p>12 June 1975 को Allahabad High Court ने Indira Gandhi का 1971 का election रद्द कर दिया — चुनावी धांधली के आरोप में। 20 दिन का time दिया गया appeal के लिए।</p>
-    <h3>वो रात</h3>
-    <p>25 June की रात, बिना Cabinet की बैठक के, बिना किसी सलाह के, Indira Gandhi ने President Fakhruddin Ali Ahmed को Emergency घोषित करने का अनुरोध किया। President ने sign किया।</p>
-    <blockquote>Cabinet को सुबह बताया गया — जब सब हो चुका था।</blockquote>
-    <h3>Sanjay Gandhi — बिना किसी post के शासन</h3>
-    <p>Emergency के 2 साल में Sanjay Gandhi — जिनके पास कोई elected post नहीं था — practically देश चला रहे थे। Forced sterilization, slum demolition, media censorship — सब उनके इशारे पर।</p>
-    <h3>1977 — जनता का जवाब</h3>
-    <p>1977 elections में Congress सिर्फ 153 seats जीती। Janata Party 298 seats ले गई। Indira और Sanjay Gandhi दोनों हारे।</p>
-    <div class="source-box"><strong>📚 Sources:</strong><br>
-    • "The Emergency" — Coomi Kapoor (2015)<br>
-    • "India After Gandhi" — Ramachandra Guha (2007)<br>
-    • Parliamentary records 1975-77</div>`
-  },
-  kashmir: {
-    eyebrow: 'Nehru Blunders',
-    headline: 'Kashmir: UN में ले जाने की वो गलती जो Patel ने रोकने की कोशिश की थी',
-    deck: 'Sardar Patel ने Nehru को मना किया था — Kashmir issue को UN में मत ले जाओ। Nehru ने नहीं सुना। 75 साल बाद भी India उसका खामियाजा भुगत रहा है।',
-    meta: 'Source: "India After Gandhi" — Ramachandra Guha | Historical Records',
-    body: `<p>October 1947 — Pakistan ने Kashmir पर कबायली हमला करवाया। India ने सेना भेजी। India जीत रहा था।</p>
-    <h3>Patel की सलाह</h3>
-    <p>Sardar Patel ने Nehru से कहा — सेना को आगे बढ़ने दो, पूरा Kashmir खाली करवाओ, फिर बात करो। UN में मत जाओ।</p>
-    <h3>Nehru का फैसला</h3>
-    <p>Nehru ने UN में जाने का फैसला किया — January 1948 में ceasefire। जिस territory पर Pakistan का कब्जा था वो "Pakistan Occupied Kashmir" बन गई।</p>
-    <blockquote>वो जमीन आज भी वापस नहीं आई।</blockquote>
-    <h3>परिणाम</h3>
-    <p>75 साल बाद — POK, Gilgit-Baltistan, और Article 370 का जटिल इतिहास। UN resolutions जो कभी implement नहीं हुईं। और एक wound जो आज भी भरा नहीं।</p>
-    <div class="source-box"><strong>📚 Sources:</strong><br>
-    • "India After Gandhi" — Ramachandra Guha (2007)<br>
-    • "Sardar Patel's Correspondence" — Historical Archives<br>
-    • UN Security Council records 1948</div>`
-  },
-  bofors: {
-    eyebrow: 'Scam Files',
-    headline: 'Bofors: Sweden से $64 Million की Kickback और Rajiv Gandhi की सरकार का पतन',
-    deck: '1987 में Swedish Radio ने एक ऐसी story break की जिसने India की राजनीति बदल दी। 1989 में Congress हार गई।',
-    meta: 'Source: Swedish Radio Investigation | CAG Reports | Parliamentary Records',
-    body: `<p>1986-87 में India ने Sweden की Bofors company से 400 howitzer guns खरीदे। Deal ₹1,437 crore की थी।</p>
-    <h3>Swedish Radio की Explosive Report</h3>
-    <p>April 1987 में Swedish Radio ने report किया कि Bofors ने Indian officials और politicians को करीब $64 million (approx) की kickbacks दीं — deal पाने के लिए।</p>
-    <h3>Rajiv Gandhi पर आरोप</h3>
-    <p>Congress government पर और Rajiv Gandhi पर सीधे आरोप लगे। Opposition ने Parliament को कई बार ठप किया। "Gali gali mein shor hai, Rajiv Gandhi chor hai" — नारे लगे।</p>
-    <h3>1989 Elections</h3>
-    <p>1989 में Congress हार गई। Rajiv Gandhi PM नहीं रहे। V.P. Singh PM बने। Bofors सबसे बड़ा election issue था।</p>
-    <p>Case decades तक चला। कुछ names सामने आए, कुछ नहीं। पूरा सच आज भी officially establish नहीं हुआ।</p>
-    <div class="source-box"><strong>📚 Sources:</strong><br>
-    • Swedish Radio Investigation (1987)<br>
-    • CAG Reports<br>
-    • Parliamentary debate records<br>
-    • "India After Gandhi" — Ramachandra Guha</div>`
-  }
+// Articles
+const A = {
+  coalgate:{eyebrow:'UPA Scam Files',headline:'Coalgate: ₹1.86 Lakh Crore का वो घपला जिसने UPA को हिला दिया',deck:'2004-2009 के बीच PM की own ministry ने Coal blocks बिना auction के बाँटे। CAG ने confirm किया: ₹1,86,000 crore का national loss।',meta:'CAG Report 2012 · Supreme Court Records · CBI Investigation',body:`<p>2004 में UPA सत्ता में आई। Manmohan Singh ने PM बनने के साथ Coal Ministry भी अपने पास रखी। 2004 से 2009 के बीच 142 coal blocks companies को allocated किए गए — बिना किसी competitive auction के।</p><h3>CAG की bombshell report</h3><p>2012 में CAG (Comptroller and Auditor General) ने report दी: इन allocations से India को ₹1,86,000 crore का नुकसान हुआ। यह number देश को चौंका गया।</p><blockquote>"Coal blocks का allocation transparent, competitive process के बिना किया गया — जिससे exchequer को enormous loss हुआ।" — CAG Report 2012</blockquote><h3>PM खुद Coal Minister थे</h3><p>सबसे बड़ा सवाल: जब PM Manmohan Singh खुद Coal Ministry चला रहे थे — तो accountability कहाँ थी? Opposition ने directly PM पर निशाना साधा।</p><h3>Supreme Court का फैसला</h3><p>2014 में Supreme Court ने 214 में से 204 coal block allocations को illegal declare किया और cancel कर दिया।</p><div class="source-box"><strong>📚 Sources:</strong><br>• CAG Report on Coal Block Allocations (2012)<br>• Supreme Court Judgment (2014)<br>• CBI Chargesheets</div>`},
+  '2g':{eyebrow:'Telecom Scam',headline:'2G Spectrum Scam: ₹1.76 Lakh Crore — India के इतिहास का सबसे बड़ा telecom घपला',deck:'2008 में Telecom Minister A. Raja ने 2G licenses auction की जगह first-come-first-served basis पर बाँटे। CAG ने ₹1.76 lakh crore का loss बताया।',meta:'CAG Report 2008 · Supreme Court · A. Raja arrested 2011',body:`<p>2008 में UPA सरकार में Telecom Minister थे A. Raja — DMK से। उन्होंने 2G spectrum licenses बाँटने का तरीका बदल दिया।</p><h3>Auction नहीं — First Come First Served</h3><p>Spectrum auction होने की जगह, licenses उन्हें दिए गए जिन्होंने पहले application की। इससे companies ने कम दाम में licenses लिए और market में ऊँचे दाम पर बेचे।</p><h3>CAG का हिसाब</h3><p>CAG ने 2008 में बताया: proper auction होती तो government को ₹1,76,000 crore मिलते। यह India की GDP का करीब 2% था।</p><blockquote>"यह spectrum allocation process में transparency और fairness का पूर्ण अभाव था।" — CAG Report</blockquote><h3>A. Raja की गिरफ्तारी</h3><p>2011 में CBI ने A. Raja को arrest किया। Case court में चला। कुछ अभियुक्त बाद में बरी भी हुए — जो अलग controversy बना।</p><div class="source-box"><strong>📚 Sources:</strong><br>• CAG Report on 2G Spectrum (2008)<br>• Supreme Court Judgment cancelling licenses (2012)<br>• CBI Chargesheet</div>`},
+  cwg:{eyebrow:'Commonwealth Games Scam',headline:'CWG 2010: जब दुनिया India को देख रही थी, तब अंदर लूट हो रही थी',deck:'₹70,000 crore का Commonwealth Games आयोजन। Inflated bills, ghost vendors, leaking stadiums। Suresh Kalmadi arrested।',meta:'CBI Investigation · Kalmadi arrested 2011 · CAG Report',body:`<p>2010 का Commonwealth Games India के लिए एक बड़ा मौका था — दुनिया को दिखाने का कि India बदल रहा है। लेकिन जो हुआ वो उल्टा था।</p><h3>Inflated Bills</h3><p>Toilet paper rolls के लिए ₹4,000, treadmills के लिए करोड़ों — ऐसे inflated bills सामने आए। CAG ने multiple irregularities document की।</p><h3>Incomplete Stadiums</h3><p>Games से पहले stadiums में पानी टपक रहा था। Athletes का accommodation तैयार नहीं था। International media ने India की खिल्ली उड़ाई।</p><h3>Suresh Kalmadi — OC Chairman</h3><p>Organizing Committee के Chairman Suresh Kalmadi को 2011 में arrest किया गया। Congress ने उन्हें party से suspend किया — लेकिन बाद में वापस लिया।</p><div class="source-box"><strong>📚 Sources:</strong><br>• CAG Report on CWG 2010<br>• CBI Chargesheet against Kalmadi<br>• Parliamentary Standing Committee Reports</div>`},
+  agusta:{eyebrow:'Defence Scam',headline:'AgustaWestland: VVIP Helicopters, International Kickbacks और एक रहस्यमय Middleman',deck:'India ने 12 VVIP helicopters के लिए ₹3,600 crore का deal किया। Italy में investigation शुरू हुई, India में भी। Middlemen और shell companies।',meta:'ED Investigation · Italy Court Records · CBI',body:`<p>2010 में India ने Italian company AgustaWestland के साथ 12 VVIP helicopters के लिए deal की — PM और VVIPs के use के लिए।</p><h3>Italy में Investigation</h3><p>2013 में Italy की court ने AgustaWestland के अधिकारियों को arrest किया। Investigation में Indian officials को kickbacks देने का आरोप।</p><h3>Middleman Christian Michel</h3><p>Christian Michel नाम का British middleman — जो India और company के बीच था — later arrested हुआ। UAE से extradite किया गया।</p><blockquote>"Indian government documents में ऐसे codenames थे जो senior officials की तरफ point करते थे।" — Italian Court Documents</blockquote><h3>Contract Cancel</h3><p>India ने 2014 में contract cancel कर दिया। ED investigation आज भी ongoing है।</p><div class="source-box"><strong>📚 Sources:</strong><br>• Italy Court Documents<br>• ED Chargesheet India<br>• CBI Investigation Records</div>`},
+  votebank:{eyebrow:'Electoral Corruption',headline:'Shah Bano से Babri Masjid तक: Congress का Double Game — दोनों Communities का Exploitation',deck:'1986 में एक ही साल में — Muslim vote के लिए Shah Bano पलटा, Hindu vote के लिए Babri Masjid के ताले खुलवाए। नतीजा: दशकों का communal tension।',meta:'Parliamentary Records · Supreme Court · Historical Documents',body:`<p>1985-86 का साल भारतीय राजनीति में एक turning point था — जब vote bank politics ने communal harmony को permanently damage किया।</p><h3>Shah Bano Case (1985-86)</h3><p>Supreme Court ने एक Muslim divorced woman Shah Bano को guzara bhatta देने का आदेश दिया। यह Muslim Personal Law के खिलाफ था।</p><p>Rajiv Gandhi ने Muslim clerics के दबाव में — Muslim vote बचाने के लिए — Constitution में amendment किया और Supreme Court का फैसला पलट दिया।</p><h3>उसी साल: Babri Masjid के ताले</h3><p>1986 में ही Faizabad court ने Babri Masjid के ताले खुलवाने का आदेश दिया — और Congress government ने इसे allow किया। Hindu vote के लिए।</p><blockquote>एक ही साल में, एक ही party ने — Muslim community को Shah Bano पलटकर please किया और Hindu community को Babri ताले खुलवाकर।</blockquote><h3>नतीजा</h3><p>दोनों communities में anger। 1992 में Babri Masjid गिरी। Riots। Thousands मरे। वो seeds 1986 में बोए गए थे।</p><div class="source-box"><strong>📚 Sources:</strong><br>• Parliamentary Records 1986<br>• Supreme Court — Shah Bano Judgment<br>• India After Gandhi — Ramachandra Guha</div>`},
+  electoral_bond:{eyebrow:'Electoral Corruption',headline:'Electoral Bonds: Supreme Court ने Unconstitutional बताया — ₹16,000 Crore कहाँ से आया?',deck:'February 2024 में Supreme Court ने Electoral Bond scheme को cancel किया। Transparency zero। SBI को donor list देनी पड़ी।',meta:'Supreme Court Judgment Feb 2024 · Election Commission',body:`<p>2018 में Modi government ने Electoral Bond scheme launch की — political parties को anonymous donations के लिए।</p><h3>Supreme Court का Judgment (Feb 2024)</h3><p>5-judge constitutional bench ने unanimously scheme को unconstitutional declare किया। Court ने कहा — यह Right to Information का violation है।</p><h3>₹16,000 Crore</h3><p>2018 से 2024 के बीच ₹16,000 crore से ज्यादा के bonds खरीदे गए। सबसे ज्यादा BJP को मिले, लेकिन अन्य parties को भी।</p><h3>SBI को List देनी पड़ी</h3><p>SC order के बाद SBI ने donor list Election Commission को दी। जो निकला वो चौंकाने वाला था — कई companies ने ED/CBI raids के बाद bonds खरीदे।</p><div class="source-box"><strong>📚 Sources:</strong><br>• Supreme Court Judgment — Feb 15, 2024<br>• Election Commission Data<br>• SBI Disclosure Documents</div>`},
+  ishrat:{eyebrow:'Judicial Controversy',headline:'Ishrat Jahan Case: UPA दौर में CBI ने अपने देश के Intelligence Officers पर Chargesheet दाखिल की',deck:'2004 Gujarat encounter। UPA के दौर में CBI ने IB (Intelligence Bureau) officers को accused बनाया। Opposition ने political conspiracy बताया।',meta:'CBI Records · Court Documents · MHA Files',body:`<p>June 2004 में Gujarat Police ने एक encounter किया — Ishrat Jahan और 3 अन्य को alleged Lashkar-e-Taiba operatives बताया।</p><h3>UPA दौर में CBI की Chargesheet</h3><p>UPA government के दौर में CBI ने इस encounter को fake बताया और Gujarat Police के साथ-साथ IB (Intelligence Bureau) के senior officers को भी chargesheet किया।</p><h3>Controversy</h3><p>BJP और security establishment ने कहा — IB officers को chargesheet करना एक political move था। Intelligence community को undermine किया जा रहा था।</p><h3>बाद में</h3><p>NDA government के आने के बाद case की direction बदली। Multiple accused bail पर हैं। Case आज भी court में है।</p><div class="source-box"><strong>📚 Sources:</strong><br>• CBI Chargesheet Documents<br>• Gujarat High Court Records<br>• Home Ministry Files</div>`},
+  '1984justice':{eyebrow:'Delayed Justice',headline:'1984 Sikh Narasanhar: 40 साल, 3000+ जानें, अभी भी पूरा इंसाफ नहीं',deck:'Congress workers ने Delhi में 3000+ Sikhs को जलाया। Tytler, Sajjan Kumar दशकों तक बचते रहे। SIT 2015 में बनी।',meta:'SIT Reports · Court Records · Human Rights Documentation',body:`<p>31 October 1984 — Indira Gandhi की हत्या। उसके बाद 3 दिन Delhi में नरसंहार।</p><h3>Congress Leaders के नाम</h3><p>H.K.L. Bhagat, Jagdish Tytler, Sajjan Kumar — इन Congress leaders पर direct allegations। Witnesses ने नाम लिए।</p><h3>Congress सरकार के दौर में</h3><p>Congress government दशकों तक सत्ता में रही। CBI cases कमज़ोर रहे। Witnesses पर दबाव के आरोप।</p><h3>SIT और आंशिक न्याय</h3><p>2015 में SIT बनी। Sajjan Kumar को 2018 में life imprisonment — 34 साल बाद। Tytler case अभी भी चल रहा है।</p><div class="source-box"><strong>📚 Sources:</strong><br>• SIT Report (2015)<br>• Delhi Court Records<br>• Human Rights Watch Documentation</div>`},
+  bhopal:{eyebrow:'Bhopal Gas Tragedy',headline:'Bhopal Gas Tragedy: Warren Anderson को India से भागने दिया — कौन था जिम्मेदार?',deck:'1984 में 15,000+ मौतें। Union Carbide के CEO Warren Anderson को जमानत मिली और देश छोड़ने दिया गया। Rajiv Gandhi government में।',meta:'CBI Records · US Congressional Records · Court Documents',body:`<p>2-3 December 1984 की रात Bhopal में Union Carbide plant से MIC gas leak हुई। 15,000 से ज्यादा लोग मरे। Lakhs affected हुए।</p><h3>Anderson की Arrest और Release</h3><p>Warren Anderson — Union Carbide के CEO — Bhopal आए। Arrest हुए। लेकिन कुछ घंटों में ज़मानत पर छूट गए और अमेरिका चले गए। कभी वापस नहीं आए।</p><h3>कौन ज़िम्मेदार?</h3><p>Rajiv Gandhi government के दौर में यह हुआ। Madhya Pradesh में भी Congress की सरकार थी। Anderson को जाने देने के आदेश किसने दिए — officially कभी स्पष्ट नहीं हुआ।</p><h3>Meager Compensation</h3><p>1989 में ₹715 crore का settlement — जो पीड़ितों को बेहद कम लगा। Anderson की मृत्यु 2014 में अमेरिका में हुई — बिना भारतीय court का सामना किए।</p><div class="source-box"><strong>📚 Sources:</strong><br>• CBI Case Documents<br>• US Congressional Testimony Records<br>• Bhopal Gas Peedit Mahila Udyog Sangathan records</div>`},
+  rti_suppressed:{eyebrow:'RTI Records',headline:'वो RTI जवाब जो सरकार ने देने से मना किया — "Classified" के पीछे क्या छुपा है?',deck:'Shastri ji का post-mortem, Nehru के letters, Emergency files, Netaji documents — RTI में बार-बार एक ही जवाब: classified।',meta:'RTI Applications · National Archives · Information Commission Orders',body:`<p>Right to Information Act 2005 ने नागरिकों को government records माँगने का अधिकार दिया। लेकिन कुछ files आज भी classified हैं।</p><h3>Shastri ji — Post-Mortem Report</h3><p>Multiple activists ने RTI से Lal Bahadur Shastri का post-mortem report माँगा। जवाब: classified। 60 साल बाद भी।</p><h3>Netaji Files</h3><p>Subhas Chandra Bose की मृत्यु को लेकर files 1947 से classified थीं। 2016 में कुछ declassify हुईं — लेकिन सब नहीं। Congress के दशकों तक सत्ता में रहने के दौरान files sealed रहीं।</p><h3>Emergency Files</h3><p>1975-77 के दौरान Intelligence reports, arrest orders, censorship directives — partially classified आज भी।</p><div class="source-box"><strong>📚 Sources:</strong><br>• RTI Application Records<br>• Central Information Commission Orders<br>• National Archives India</div>`},
+  nehru_letters:{eyebrow:'Classified Files',headline:'Nehru–Edwina Letters: British MPs ने Release माँगी, दोनों Governments ने Deny किया',deck:'1947 से 1960 तक हजारों letters। Edwina ने खुद कुछ को "love letters" describe किया। British Parliament में demand। Denied।',meta:'Andrew Lownie (2019) · British Parliament Records · Alex von Tunzelmann (2007)',body:`<p>Lord Louis Mountbatten India के Last Viceroy थे। उनकी पत्नी Edwina Mountbatten से Jawaharlal Nehru की पहली मुलाकात 1947 में हुई।</p><h3>हजारों Letters — 13 साल तक</h3><p>1947 से Edwina की मृत्यु 1960 तक Nehru और Edwina के बीच regular letter exchange था। यह दोनों ने acknowledge किया।</p><blockquote>"कुछ letters purely informational हैं — कुछ love letters जैसे हैं। हमारा रिश्ता spiritual था।" — Edwina Mountbatten</blockquote><h3>British Parliament में demand</h3><p>British MPs ने इन letters को public करने की demand की। British government ने deny किया। Indian government से भी transparency नहीं मिली।</p><h3>Partition पर असर?</h3><p>यह allegation है — proof नहीं। लेकिन Kashmir को UN में ले जाना, Partition की जल्दबाजी — critics इसे personal relationships से जोड़ते हैं।</p><div class="source-box"><strong>📚 Sources:</strong><br>• "The Mountbattens" — Andrew Lownie (2019)<br>• "Indian Summer" — Alex von Tunzelmann (2007)<br>• British Parliament Hansard records</div>`},
+  mathai:{eyebrow:'Suppressed Memoir',headline:'M.O. Mathai: 15 साल, एक किताब, और वो Chapter जो आज भी नहीं छपा',deck:'Nehru के Personal Secretary की memoir 1978 में आई — लेकिन "She" chapter GOI के दबाव में हटाया गया। आज भी published नहीं।',meta:'Book: Reminiscences of the Nehru Age — M.O. Mathai (1978) · ISBN: 9780706906219',body:`<p>M.O. Mathai 1946 से 1959 तक — 13 साल — Jawaharlal Nehru के Personal और Private Secretary रहे। वो सब कुछ देखते थे।</p><h3>Memoir और Controversy</h3><p>1978 में उनकी memoir "Reminiscences of the Nehru Age" प्रकाशित हुई। लेकिन publisher को Government का pressure आया — एक chapter हटाओ।</p><h3>"She" — वो Chapter</h3><p>Chapter का title था "She"। Mathai ने खुद बाद में कहा कि यह chapter एक specific woman से Nehru के रिश्ते के बारे में था। Chapter आज भी published नहीं।</p><h3>Padmaja Naidu का Portrait</h3><p>Mathai ने memoir में लिखा कि Nehru, Padmaja Naidu (Sarojini Naidu की बेटी) का portrait अपने bedroom में रखते थे। Indira Gandhi जब आतीं तो हटा देती थीं। Padmaja को बाद में West Bengal का Governor बनाया गया।</p><div class="source-box"><strong>📚 Sources:</strong><br>• "Reminiscences of the Nehru Age" — M.O. Mathai (ISBN: 9780706906219)</div>`},
+  indira_personal:{eyebrow:'Indira Files',headline:'Katherine Frank की Documented Biography: Indira Gandhi की Personal Life के अनजाने पहलू',deck:'Award-winning biographer की research — official history से परे। Dhirendra Brahmachari, PM House, arms factory।',meta:'Katherine Frank — The Life of Indira Nehru Gandhi (ISBN: 9780007259304)',body:`<p>Katherine Frank एक British biographer हैं जिन्होंने Indira Gandhi पर extensively research की। उनकी biography को internationally acclaimed माना जाता है।</p><h3>Dhirendra Brahmachari</h3><p>Indira Gandhi के yoga teacher — जो PM House में रहते थे। उनके पास था: Private jet, Doordarshan पर weekly show, Jammu में arms manufacturing facility, Government land grants।</p><h3>Political Impact</h3><p>Brahmachari की power Indira Gandhi की personal approval से आती थी। यह government resources का personal use था।</p><h3>Rajiv के बाद</h3><p>Rajiv Gandhi ने PM बनने के बाद Brahmachari को distance किया। 1994 में एक plane crash में उनकी मृत्यु हुई।</p><div class="source-box"><strong>📚 Sources:</strong><br>• "The Life of Indira Nehru Gandhi" — Katherine Frank (ISBN: 9780007259304)<br>• "The Emergency" — Coomi Kapoor (2015)</div>`},
+  vadra:{eyebrow:'Land Deal',headline:'Robert Vadra–DLF Deal: Sonia Gandhi के Damaad और Crores की Zameen',deck:'Congress शासन में Robert Vadra ने DLF के साथ ऐसी deals कीं जिनमें कम दाम में बड़ी संपत्तियाँ मिलीं।',meta:'ED Investigation · Income Tax Records · Arvind Kejriwal allegations (documented)',body:`<p>Robert Vadra — Sonia Gandhi के दामाद — का नाम 2012 में Arvind Kejriwal (तब IAC) ने publicly उठाया।</p><h3>DLF के साथ Deal</h3><p>Vadra ने Haryana में DLF के साथ कई real estate transactions कीं। Allegation: market rate से बहुत कम में land मिली — Haryana में Congress government के कारण।</p><h3>ED Investigation</h3><p>ED ने money laundering case दर्ज किया। मामला court में है। Vadra ने allegations deny किए।</p><div class="source-box"><strong>📚 Sources:</strong><br>• ED Chargesheet<br>• Haryana Government Land Records<br>• Parliamentary Questions raised</div>`},
+  nationalherald:{eyebrow:'National Herald Case',headline:'National Herald: बंद अखबार की Property — और Gandhi Family का Connection',deck:'₹2,000 crore से ज्यादा की property। Sonia और Rahul Gandhi accused। Bail पर हैं।',meta:'ED Investigation · Delhi Court Records',body:`<p>National Herald एक Congress से जुड़ा अखबार था — जो बंद हो गया। उसकी संपत्ति का क्या हुआ — यही सवाल है।</p><h3>Young Indian और AJL</h3><p>Associated Journals Limited (AJL) के पास National Herald की property थी। 2010 में Young Indian नाम की company बनाई गई — जिसमें Sonia और Rahul Gandhi majority shareholders बने।</p><h3>Allegation</h3><p>₹90 crore का loan AJL को Congress party ने दिया था। Young Indian ने ₹50 lakh में AJL acquire किया — और साथ में आई ₹2,000 crore की संपत्ति।</p><h3>Case</h3><p>ED ने money laundering case दर्ज किया। Sonia और Rahul Gandhi bail पर हैं। Case court में चल रहा है।</p><div class="source-box"><strong>📚 Sources:</strong><br>• ED Chargesheet<br>• Delhi Court Records<br>• Parliamentary Debate Records</div>`},
+  narasimha_bribe:{eyebrow:'Parliament Bribery',headline:'JMM Bribery Case: MPs को Cash देकर Narasimha Rao ने 1993 में सरकार बचाई',deck:'No-confidence motion। JMM MPs को rishwat। Supreme Court तक मामला गया। Congress PM का documented connection।',meta:'Supreme Court Records · Parliament Archives · JMM leader statements',body:`<p>1993 में P.V. Narasimha Rao की minority government के खिलाफ no-confidence motion आया।</p><h3>JMM MPs को Cash</h3><p>Jharkhand Mukti Morcha के MPs ने बाद में खुद कहा कि उन्हें motion के खिलाफ vote करने के लिए cash दिया गया। Shibu Soren ने ये allegations लगाए।</p><h3>Supreme Court तक</h3><p>Case Supreme Court तक गया। Narasimha Rao पर criminal charges लगे। Court proceedings में yeh documented है।</p><h3>Congress की legacy</h3><p>यह India की parliamentary history में बड़ा scandal था — एक PM पर Parliament में rishwat का आरोप।</p><div class="source-box"><strong>📚 Sources:</strong><br>• Supreme Court Case Records<br>• Parliament Archives 1993<br>• JMM Leader Shibu Soren statements</div>`},
+  emergency_files:{eyebrow:'Emergency Files',headline:'Emergency 1975 की Classified Files — Arrest Orders, Intelligence Reports, Censorship Directives',deck:'25 June 1975 की रात से 21 March 1977 तक — 21 महीने। कितनी files आज भी public नहीं?',meta:'National Archives · RTI Records · Coomi Kapoor (2015)',body:`<p>Emergency के 21 महीनों में जो हुआ — उसका पूरा record आज भी public नहीं है।</p><h3>Classified Documents</h3><p>Intelligence reports जो Emergency के दौरान बनी — कितने लोग arrested हुए, किन आदेशों पर — partially classified।</p><h3>Forced Sterilization Records</h3><p>Sanjay Gandhi की forced sterilization drive में कितने लोग affected हुए — official figures debated हैं। पूरा record आज भी transparent नहीं।</p><h3>Media Censorship Orders</h3><p>किन newspapers को क्या नहीं छापने दिया — कुछ orders public हैं, कुछ नहीं।</p><div class="source-box"><strong>📚 Sources:</strong><br>• "The Emergency" — Coomi Kapoor (2015)<br>• RTI Applications<br>• National Archives India</div>`},
+  netaji:{eyebrow:'Classified',headline:'Netaji Files: 1947 से Classified — Nehru ने क्यों छुपाया?',deck:'Subhas Chandra Bose की मृत्यु को लेकर files दशकों तक sealed रहीं। 2016 में कुछ released हुईं — सब नहीं।',meta:'National Archives · RTI · Netaji Research Bureau',body:`<p>Subhas Chandra Bose — India के सबसे charismatic freedom fighters में से एक। उनकी 1945 में कथित मृत्यु — और उसके बाद की files — classified रहीं।</p><h3>Nehru ने क्यों छुपाया?</h3><p>यह सवाल historians पूछते हैं। कुछ का मानना है कि Nehru और Bose के बीच ideological rivalry थी। Files classify करना political था।</p><h3>2016 में Partial Disclosure</h3><p>Modi government ने 2016 में कुछ files public कीं। लेकिन complete picture नहीं आई।</p><h3>तीन Commission</h3><p>Bose की मृत्यु को investigate करने के लिए तीन commission बने — Shah Nawaz Committee, Khosla Commission, Mukherjee Commission। सब के अलग-अलग conclusions।</p><div class="source-box"><strong>📚 Sources:</strong><br>• National Archives India (2016 declassified files)<br>• Mukherjee Commission Report (2005)<br>• Netaji Research Bureau, Kolkata</div>`},
+  '1984files':{eyebrow:'1984 Files',headline:'1984 Sikh Narasanhar: Intelligence Files आज भी Seal — कौन जानता था क्या होगा?',deck:'October 31, 1984 के बाद 3 दिन। Intelligence files में क्या है? MHA records partially classified।',meta:'MHA Records · SIT Report 2015 · Human Rights Watch',body:`<p>Indira Gandhi की हत्या के बाद जो हुआ — वो spontaneous था या organized? यही सवाल files में है।</p><h3>Intelligence की Role</h3><p>क्या Intelligence agencies को पता था कि riots होंगे? क्या कोई warning थी? Files में यही है — जो partially classified हैं।</p><h3>Congress Leaders</h3><p>Multiple witnesses ने Congress leaders — Tytler, Sajjan Kumar, Bhagat — के नाम लिए। CBI ने Congress government के दौर में cases कमज़ोर रखे।</p><h3>SIT और Justice</h3><p>2015 में SIT बनी। 2018 में Sajjan Kumar को life imprisonment। लेकिन 3000+ में से कितने cases resolve हुए? पूरा न्याय आज भी नहीं।</p><div class="source-box"><strong>📚 Sources:</strong><br>• SIT Report 2015<br>• MHA Intelligence Records (partial)<br>• Human Rights Watch 1984 Documentation</div>`},
+  bofors_files:{eyebrow:'Bofors Files',headline:'Bofors Files: Congress सरकार ने Case क्यों कमज़ोर किया?',deck:'Swedish Radio ने 1987 में expose किया। India में case decades तक चला। Congress सरकारों के दौर में files कमज़ोर होती रहीं।',meta:'Swedish Radio · CBI Records · Swedish Court Documents',body:`<p>Bofors scam expose होने के बाद India में CBI investigation शुरू हुई। लेकिन जब भी Congress सत्ता में आई — case की गति slow हुई।</p><h3>Quattrocchi Factor</h3><p>Italian businessman Ottavio Quattrocchi — Sonia Gandhi के करीबी — suspect थे। UPA के दौर में Quattrocchi के account को unfreeze किया गया — opposition ने इसे case sabotage कहा।</p><h3>Files और Destruction</h3><p>Allegations थे कि कुछ relevant documents destroy हो गए। CBI ने कई बार court में कहा कि evidence compromise हुआ।</p><h3>Rajiv Gandhi का नाम</h3><p>Case में Rajiv Gandhi का नाम था। उनकी 1991 में हत्या के बाद case और complicated हो गया।</p><div class="source-box"><strong>📚 Sources:</strong><br>• Swedish Radio Investigation (1987)<br>• CBI Chargesheet Documents<br>• CAG Reports · Parliament Debates</div>`},
+  pmcare:{eyebrow:'RTI Denied',headline:'PM CARES Fund: RTI Denied, CAG Audit नहीं — ₹3,000+ Crore कहाँ गए?',deck:'COVID-19 के दौरान बना fund। RTI se bahar। CAG audit नहीं। Supreme Court में PIL।',meta:'Supreme Court Orders · RTI Responses · Audit Reports',body:`<p>March 2020 में COVID-19 के लिए PM CARES (Prime Minister Citizen Assistance and Relief in Emergency Situations) Fund बनाया गया।</p><h3>RTI से बाहर</h3><p>Government ने कहा यह public authority नहीं है — इसलिए RTI apply नहीं होता। नागरिकों को information नहीं मिली।</p><h3>CAG Audit नहीं</h3><p>Comptroller and Auditor General ने fund का audit नहीं किया। Opposition ने transparency माँगी।</p><h3>Supreme Court</h3><p>Multiple PILs दाखिल हुईं। Supreme Court ने कहा fund public है — लेकिन full transparency अभी भी नहीं।</p><div class="source-box"><strong>📚 Sources:</strong><br>• Supreme Court Orders on PM CARES PILs<br>• RTI Responses (denial letters)<br>• Parliamentary Questions</div>`}
 };
 
-function openArticle(id) {
-  const a = articles[id];
-  if (!a) return;
-  document.getElementById('modalBody').innerHTML = `
-    <span class="modal-eyebrow">${a.eyebrow}</span>
-    <h1 class="modal-headline">${a.headline}</h1>
-    <p class="modal-deck">${a.deck}</p>
-    <div class="modal-meta"><span class="byline">The Hidden Record</span><span>·</span><span>${a.meta}</span></div>
-    <div class="modal-body">${a.body}</div>
-  `;
+function openArticle(id){
+  const a=A[id]; if(!a) return;
+  document.getElementById('modalBody').innerHTML=`<span class="modal-eyebrow">${a.eyebrow}</span><h1 class="modal-headline">${a.headline}</h1><p class="modal-deck">${a.deck}</p><div class="modal-meta"><span class="byline">The Hidden Record</span> · ${a.meta}</div><div class="modal-body">${a.body}</div>`;
   document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
+  document.getElementById('modalContent').scrollTop=0;
 }
-
-function closeArticle() {
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeIfBg(e) {
-  if (e.target === document.getElementById('modal')) closeArticle();
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
+function closeArticle(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function closeIfBg(e){if(e.target===document.getElementById('modal'))closeArticle();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticle();});
 </script>
 </body>
 </html>
