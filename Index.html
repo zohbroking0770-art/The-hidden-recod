@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Record — Ram Mandir Controversy: Complete Investigation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --red:#c0392b; --ink:#111827; --body:#374151; --muted:#6b7280;
+  --border:#e5e7eb; --bg:#fff; --bg2:#f9fafb; --bg3:#f3f4f6;
+  --gold:#92400e; --saffron:#ff6b00; --orange:#ea580c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter','Noto Sans Devanagari',sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+
+/* TICKER */
+.ticker-bar{background:var(--orange);color:white;height:34px;display:flex;align-items:center;overflow:hidden;font-size:12.5px;}
+.ticker-label{background:#c2410c;padding:0 14px;height:100%;display:flex;align-items:center;font-weight:700;letter-spacing:1.5px;font-size:11px;white-space:nowrap;flex-shrink:0;}
+.ticker-track{overflow:hidden;flex:1;}
+.ticker-inner{display:inline-flex;animation:tick 55s linear infinite;white-space:nowrap;}
+.ticker-inner span{padding:0 36px;}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* MASTHEAD */
+.masthead{border-bottom:3px solid var(--ink);padding:16px 24px;}
+.masthead-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;}
+.site-name{font-family:'Libre Baskerville',serif;font-size:clamp(26px,4vw,44px);font-weight:700;letter-spacing:-1px;line-height:1;text-align:center;}
+.site-name .the{color:var(--red);font-style:italic;}
+.site-tagline{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:4px;text-align:center;}
+.mh-left{font-size:11px;color:var(--muted);line-height:1.6;}
+.mh-right{text-align:right;font-size:11px;color:var(--muted);line-height:1.6;}
+
+/* NAV */
+.section-nav{background:var(--ink);position:sticky;top:0;z-index:100;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-item{color:#d1d5db;font-size:12px;font-weight:500;letter-spacing:0.5px;padding:12px 16px;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;}
+.nav-item:hover,.nav-item.active{color:white;border-bottom-color:var(--orange);}
+
+/* PROGRESS */
+.read-bar{height:3px;background:var(--orange);width:0%;position:fixed;top:0;left:0;z-index:999;transition:width 0.1s;}
+
+/* PAGE */
+.page{max-width:1100px;margin:0 auto;padding:0 20px;}
+
+/* ALERT BANNER */
+.live-alert{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid var(--orange);padding:14px 20px;margin:24px 0;display:flex;align-items:center;gap:12px;font-size:13.5px;}
+.live-dot{width:10px;height:10px;background:var(--orange);border-radius:50%;animation:blink 1.2s infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+/* HERO */
+.hero-section{padding:32px 0 24px;border-bottom:1px solid var(--border);}
+.hero-eyebrow{display:inline-block;background:var(--orange);color:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;margin-bottom:14px;}
+.hero-headline{font-family:'Libre Baskerville',serif;font-size:clamp(24px,4vw,44px);font-weight:700;line-height:1.15;margin-bottom:14px;max-width:820px;}
+.hero-deck{font-family:'Libre Baskerville',serif;font-style:italic;font-size:clamp(14px,2vw,18px);color:var(--body);line-height:1.7;max-width:720px;margin-bottom:16px;}
+.hero-meta{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid var(--border);margin-bottom:20px;}
+.hero-meta strong{color:var(--ink);}
+
+/* SUMMARY BOX */
+.summary-box{background:#fff7ed;border:1px solid #fed7aa;padding:20px 24px;margin:20px 0;border-radius:2px;}
+.summary-box h3{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
+.summary-box p{font-size:14px;color:var(--body);line-height:1.7;}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:2fr 1fr;gap:32px;padding:28px 0;}
+.sidebar-head{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding-bottom:8px;border-bottom:2px solid var(--ink);margin-bottom:0;}
+.sb-item{padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer;}
+.sb-item:hover .sb-title{color:var(--orange);}
+.sb-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.sb-title{font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;line-height:1.3;transition:color 0.2s;}
+.sb-meta{font-size:11px;color:var(--muted);margin-top:4px;}
+
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:center;gap:12px;padding:28px 0 16px;border-bottom:2px solid var(--ink);margin-bottom:20px;}
+.sec-hdr h2{font-family:'Libre Baskerville',serif;font-size:17px;font-weight:700;white-space:nowrap;}
+.sec-hdr .rule{flex:1;height:1px;background:var(--border);}
+.sec-hdr .badge{background:var(--orange);color:white;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;text-transform:uppercase;}
+
+/* ALLEGATION CARDS */
+.allegations-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:32px;}
+.alleg-card{border:1px solid var(--border);padding:22px;position:relative;cursor:pointer;transition:border-color 0.2s;}
+.alleg-card:hover{border-color:var(--orange);}
+.alleg-card.expanded .alleg-body{display:block;}
+.alleg-num{font-family:'Libre Baskerville',serif;font-size:40px;font-weight:700;color:rgba(234,88,12,0.12);position:absolute;top:12px;right:16px;line-height:1;}
+.alleg-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.alleg-title{font-family:'Libre Baskerville',serif;font-size:17px;font-weight:700;line-height:1.3;margin-bottom:8px;}
+.alleg-lead{font-size:13px;color:var(--muted);line-height:1.6;}
+.alleg-body{display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:13.5px;line-height:1.75;color:var(--body);}
+.alleg-body .src{display:block;background:var(--ink);color:#d1d5db;font-size:11px;padding:8px 12px;margin-top:12px;border-left:3px solid var(--orange);}
+.alleg-body strong{color:var(--ink);}
+.alleg-body blockquote{border-left:3px solid var(--orange);padding:10px 14px;margin:12px 0;font-style:italic;color:#555;background:#fff7ed;font-family:'Libre Baskerville',serif;}
+.expand-btn{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:10px;display:inline-block;border:none;background:none;padding:0;}
+
+/* TIMELINE */
+.tl-wrap{padding-bottom:36px;}
+.tl-item{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateY(12px);transition:opacity 0.5s,transform 0.5s;}
+.tl-item.vis{opacity:1;transform:none;}
+.tl-year{min-width:60px;font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--orange);padding-top:2px;line-height:1.2;}
+.tl-title{font-weight:700;font-size:14px;margin-bottom:4px;}
+.tl-text{font-size:13px;color:var(--muted);line-height:1.6;}
+.tl-src{font-size:11px;color:#aaa;margin-top:4px;font-style:italic;}
+
+/* VERDICT TABLE */
+.verdict-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:36px;}
+.verdict-col{padding:20px;border:1px solid var(--border);}
+.verdict-col.confirmed{border-top:3px solid #16a34a;}
+.verdict-col.alleged{border-top:3px solid #d97706;}
+.verdict-col.denied{border-top:3px solid var(--red);}
+.v-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+.verdict-col.confirmed .v-label{color:#16a34a;}
+.verdict-col.alleged .v-label{color:#d97706;}
+.verdict-col.denied .v-label{color:var(--red);}
+.verdict-col ul{list-style:none;padding:0;}
+.verdict-col li{font-size:13px;line-height:1.7;padding:6px 0;border-bottom:1px solid var(--border);padding-left:16px;position:relative;color:var(--body);}
+.verdict-col li::before{position:absolute;left:0;}
+.confirmed li::before{content:'✓';color:#16a34a;font-weight:700;}
+.alleged li::before{content:'?';color:#d97706;font-weight:700;}
+.denied li::before{content:'✗';color:var(--red);font-weight:700;}
+
+/* AMOUNT TABLE */
+.amount-table{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:13.5px;}
+.amount-table th{background:var(--ink);color:white;padding:10px 14px;text-align:left;font-size:11px;letter-spacing:1px;text-transform:uppercase;}
+.amount-table td{padding:10px 14px;border-bottom:1px solid var(--border);}
+.amount-table tr:hover td{background:var(--bg2);}
+.amount-table .amt{font-weight:700;color:var(--orange);}
+.amount-table .status{font-size:11px;color:var(--muted);}
+
+/* OPINION */
+.opinion-box{background:var(--ink);color:white;padding:32px;margin:0 0 32px;}
+.op-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;font-weight:700;}
+.op-text{font-family:'Libre Baskerville',serif;font-size:clamp(16px,2.2vw,22px);font-style:italic;line-height:1.55;color:#f3f4f6;margin-bottom:10px;}
+.op-attr{font-size:12px;color:#9ca3af;}
+
+/* SOURCES */
+.sources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px;}
+.src-card{padding:14px;border:1px solid var(--border);border-left:3px solid var(--orange);font-size:13px;}
+.src-type{font-size:10px;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:1px;}
+
+/* MODAL */
+.modal-wrap{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.6);overflow-y:auto;padding:40px 20px;animation:fadeIn 0.3s;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-wrap.open{display:block;}
+.modal-box{max-width:720px;margin:0 auto;background:white;padding:40px;position:relative;}
+.modal-close{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:var(--muted);border:none;background:none;}
+.modal-close:hover{color:var(--red);}
+
+/* FOOTER */
+.footer-top{background:var(--ink);color:#9ca3af;padding:40px 20px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+.footer-brand .fn{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:white;margin-bottom:8px;}
+.footer-brand .fn .the{color:var(--red);font-style:italic;}
+.footer-brand p{font-size:13px;line-height:1.7;}
+.footer-col h4{color:white;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #374151;}
+.footer-col li{font-size:13px;padding:4px 0;list-style:none;}
+.footer-bottom{background:#0a0a0a;color:#6b7280;text-align:center;padding:14px;font-size:12px;}
+
+@media(max-width:768px){
+  .masthead-inner{grid-template-columns:1fr;text-align:center}.mh-left,.mh-right{display:none}
+  .two-col{grid-template-columns:1fr}
+  .allegations-grid{grid-template-columns:1fr}
+  .verdict-wrap{grid-template-columns:1fr}
+  .sources-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .modal-box{padding:24px 16px}
+  .amount-table{font-size:12px}
+}
+</style>
+</head>
+<body>
+<div class="read-bar" id="rb"></div>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-label">⚑ LIVE UPDATE</div>
+  <div class="ticker-track">
+    <div class="ticker-inner">
+      <span>SIT गठित — June 13, 2026 · UP Government</span>
+      <span>◆</span>
+      <span>Temple employee के घर ₹10 लाख गाय के गोबर के नीचे मिले</span>
+      <span>◆</span>
+      <span>Champat Rai के driver Tinnu Yadav prime suspect में</span>
+      <span>◆</span>
+      <span>1,250 सोने-चाँदी-हीरे की ईंटें भी गायब — complaint दर्ज</span>
+      <span>◆</span>
+      <span>Land deal: ₹2 Cr की ज़मीन ₹18.5 Cr में खरीदी — 10 मिनट में</span>
+      <span>◆</span>
+      <span>Nripendra Misra: "Open Robbery हुई है" — Trust के अपने ही construction chief का बयान</span>
+      <span>◆</span>
+      <span>SIT गठित — June 13, 2026 · UP Government</span>
+      <span>◆</span>
+      <span>Temple employee के घर ₹10 लाख गाय के गोबर के नीचे मिले</span>
+      <span>◆</span>
+      <span>Champat Rai के driver Tinnu Yadav prime suspect में</span>
+      <span>◆</span>
+      <span>1,250 सोने-चाँदी-हीरे की ईंटें भी गायब — complaint दर्ज</span>
+    </div>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="mh-left">Special Investigation · June 2026<br>Live & Developing Story</div>
+    <div>
+      <div class="site-name"><span class="the">The</span> Hidden Record</div>
+      <div class="site-tagline">Documented. Sourced. Balanced. — Ram Mandir Special Edition</div>
+    </div>
+    <div class="mh-right">SIT Investigation Ongoing<br>Multiple Sources</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="section-nav">
+  <div class="nav-inner">
+    <div class="nav-item active">🏠 Overview</div>
+    <div class="nav-item" onclick="scrollTo('donation')">💰 Donation Scam</div>
+    <div class="nav-item" onclick="scrollTo('land')">🏗️ Land Deals</div>
+    <div class="nav-item" onclick="scrollTo('vhp')">📁 VHP History</div>
+    <div class="nav-item" onclick="scrollTo('timeline')">📅 Timeline</div>
+    <div class="nav-item" onclick="scrollTo('verdict')">✅ Verified vs Alleged</div>
+    <div class="nav-item" onclick="scrollTo('sources')">📚 Sources</div>
+  </div>
+</nav>
+
+<main>
+<div class="page">
+
+<!-- LIVE ALERT -->
+<div class="live-alert">
+  <div class="live-dot"></div>
+  <div><strong>LIVE STORY:</strong> SIT investigation active · June 13, 2026 को UP Government ने 3-member SIT गठित की · Bank records 7 banks से माँगे गए · 70-80 लोगों से पूछताछ</div>
+</div>
+
+<!-- HERO -->
+<div class="hero-section">
+  <span class="hero-eyebrow">Special Investigation · Ram Mandir</span>
+  <h1 class="hero-headline">
+    राम मंदिर घोटाला: दान, ज़मीन और विश्वास —<br>
+    तीन बड़े आरोप, एक SIT जाँच
+  </h1>
+  <p class="hero-deck">
+    भक्तों के करोड़ों रुपए के दान का क्या हुआ? ज़मीन ₹2 करोड़ की — खरीदी ₹18.5 करोड़ में? 1,250 कीमती ईंटें गायब? — June 2026 में सामने आई India की सबसे बड़ी धार्मिक-वित्तीय controversy।
+  </p>
+  <div class="hero-meta">
+    <span><strong>Investigation Desk</strong></span>
+    <span>·</span><span>Source: The Wire, Wikipedia, AAP MP Documents, UP SIT</span>
+    <span>·</span><span>Updated: June 2026</span>
+    <span>·</span><span style="color:var(--orange);font-weight:600;">⚠️ Investigation Ongoing — कुछ allegations unverified</span>
+  </div>
+
+  <div class="summary-box">
+    <h3>📋 Case Summary</h3>
+    <p>
+      <strong>क्या हुआ:</strong> Ram Mandir donation boxes से पैसे गायब होने के allegations सामने आए। Temple employee के घर से ₹10 लाख गोबर के नीचे मिले। FIR दर्ज। SIT बनी।<br><br>
+      <strong>कौन involved:</strong> Temple employees, Trust के General Secretary Champat Rai (allegations), उनके driver Tinnu Yadav (prime suspect)।<br><br>
+      <strong>Trust का कहना:</strong> Trust ने allegations को "misleading और politically motivated" बताया। Internal audit की बात कही।<br><br>
+      <strong>अब क्या:</strong> 3-member UP SIT investigation जारी। Bank records 7 banks से माँगे। 70-80 लोगों से पूछताछ।
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     DONATION SCAM SECTION
+═══════════════════════════════ -->
+<div id="donation" style="padding-top:20px;">
+<div class="sec-hdr">
+  <h2>💰 Donation Box Scam — क्या हुआ?</h2>
+  <div class="rule"></div>
+  <div class="badge">Live Investigation</div>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="allegations-grid">
+      <div class="alleg-card" onclick="toggleAlleg(this)">
+        <div class="alleg-num">01</div>
+        <div class="alleg-tag">Confirmed · FIR Registered</div>
+        <div class="alleg-title">Temple Employee के घर ₹10 लाख — गोबर के नीचे छुपाए</div>
+        <div class="alleg-lead">Donation handling employee Lavkush के घर छापे में ₹10 लाख मिले — कुछ cupboard में, कुछ गाय के गोबर के नीचे।</div>
+        <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+        <div class="alleg-body">
+          <p>Ayodhya Police की investigation में donation handling से जुड़े employee के घर छापा मारा गया। वहाँ <strong>लगभग ₹10 लाख नकद</strong> मिले — कुछ cupboard में, कुछ <strong>गाय के गोबर के ढेर के नीचे</strong> छुपाए हुए।</p>
+          <p style="margin-top:10px;">इस case में FIR दर्ज हुई। 8 लोगों को named किया गया। यह वो moment था जब controversy purely political से formal investigation में बदली।</p>
+          <blockquote>"हमने cow dung में पैसे छुपाए? Show us evidence" — Lavkush की family का बयान (Defiant)</blockquote>
+          <span class="src">📰 Source: The Wire · Sanatan Prabhat · Multiple news agencies · June 2026</span>
+        </div>
+      </div>
+
+      <div class="alleg-card" onclick="toggleAlleg(this)">
+        <div class="alleg-num">02</div>
+        <div class="alleg-tag">Confirmed · Champat Rai ने acknowledge किया</div>
+        <div class="alleg-title">Champat Rai का Driver "Tinnu Yadav" — Prime Suspect</div>
+        <div class="alleg-lead">Trust के General Secretary Champat Rai का driver Tinnu Yadav case में prime suspect निकला। पहले tempo driver, फिर अचानक करोड़पति।</div>
+        <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+        <div class="alleg-body">
+          <p>Wikipedia पर documented है: <strong>Ramashankar Yadav alias Tinnu Yadav</strong> — Champat Rai का driver — Ram Temple construction शुरू होने के बाद उनका driver बना।</p>
+          <p style="margin-top:10px;">Journalists ने report किया कि Tinnu पहले एक tempo driver था। लेकिन temple construction के दौरान उसकी <strong>financial condition dramatically change</strong> हुई।</p>
+          <p style="margin-top:10px;">Champat Rai पर आरोप: जब controversy पहली बार सामने आई — उन्होंने <strong>FIR file करने से मना किया।</strong> बाद में जब pressure बढ़ा तब investigation शुरू हुई।</p>
+          <span class="src">📰 Source: Wikipedia — Champat Rai page · The Wire · June 2026</span>
+        </div>
+      </div>
+
+      <div class="alleg-card" onclick="toggleAlleg(this)">
+        <div class="alleg-num">03</div>
+        <div class="alleg-tag">Alleged · SIT Investigating</div>
+        <div class="alleg-title">1,250 सोने-चाँदी-हीरे-अष्टधातु की ईंटें गायब?</div>
+        <div class="alleg-lead">Ram Janmbhoomi activist Santosh Dubey का allegation: लगभग 1,250 कीमती ईंटें Ram Temple से गायब हो गईं।</div>
+        <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+        <div class="alleg-body">
+          <p>Ram Janmbhoomi activist <strong>Santosh Dubey</strong> ने police complaint दर्ज कराई। उनका allegation: <strong>लगभग 1,250 gold, silver, diamond-studded और ashtadhatu ईंटें</strong> Ram Temple से गायब हैं।</p>
+          <p style="margin-top:10px;">Dubey ने Ram Temple Trust और इससे जुड़े लोगों की assets की inquiry की माँग की — including Champat Rai।</p>
+          <p style="margin-top:10px;color:var(--orange);font-weight:600;">⚠️ यह allegation है — SIT investigation में confirm नहीं हुआ अभी तक।</p>
+          <span class="src">📰 Source: Wikipedia — Champat Rai page · Santosh Dubey police complaint</span>
+        </div>
+      </div>
+
+      <div class="alleg-card" onclick="toggleAlleg(this)">
+        <div class="alleg-num">04</div>
+        <div class="alleg-tag">Internal Fracture — BJP/Trust में दरार</div>
+        <div class="alleg-title">Nripendra Misra: "Open Robbery हुई है" — Trust के अपने construction head का बयान</div>
+        <div class="alleg-lead">PM Modi के पूर्व Principal Secretary और Trust के construction committee head Nripendra Misra ने खुद माना कि "malpractice हुई।"</div>
+        <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+        <div class="alleg-body">
+          <p>यह सबसे shocking development था। <strong>Nripendra Misra</strong> — जो PM Modi के first term में Principal Secretary रहे और अब Trust के construction committee head हैं — ने publicly कहा:</p>
+          <blockquote>"Temple की surveillance और vigilance systems पूरी तरह fail हुईं। कुछ न कुछ malpractice ज़रूर हुई।"</blockquote>
+          <p style="margin-top:10px;">जबकि <strong>CM Yogi Adityanath</strong> ने कहा कि यह Ayodhya को target करने की "conspiracy" है।</p>
+          <p style="margin-top:10px;">यानी <strong>BJP/Trust के अपने लोगों में ही दो अलग positions</strong> सामने आईं — जो बताती है कि matter serious है।</p>
+          <span class="src">📰 Source: The Wire — "Ram Temple Funds Scam: UP CM Says...Nripendra Misra Says Open Robbery" · June 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sidebar-head">🔔 Key Developments</div>
+    <div class="sb-item">
+      <div class="sb-tag">June 13, 2026</div>
+      <div class="sb-title">UP Govt ने 3-member SIT गठित की</div>
+      <div class="sb-meta">IAS Vijay Vishwas Pant, IPS Kiran S., Finance Secy Neel Ratan</div>
+    </div>
+    <div class="sb-item">
+      <div class="sb-tag">Bank Audit</div>
+      <div class="sb-title">7 banks से 5 साल के records माँगे</div>
+      <div class="sb-meta">Financial audit phase शुरू · 70-80 लोगों से पूछताछ</div>
+    </div>
+    <div class="sb-item">
+      <div class="sb-tag">Former BJP MP</div>
+      <div class="sb-title">Vinay Katiyar: Champat Rai को personally ज़िम्मेदार ठहराओ</div>
+      <div class="sb-meta">BJP के अपने नेता का बयान</div>
+    </div>
+    <div class="sb-item">
+      <div class="sb-tag">AAP MP</div>
+      <div class="sb-title">Sanjay Singh ने SIT को 11 documents सौंपे</div>
+      <div class="sb-meta">Land deal से जुड़े documents · Champat Rai का नाम</div>
+    </div>
+    <div class="sb-item">
+      <div class="sb-tag">SP Chief</div>
+      <div class="sb-title">Akhilesh Yadav: "SIT की composition पर ही doubt"</div>
+      <div class="sb-meta">Independent probe की माँग</div>
+    </div>
+    <div class="sb-item">
+      <div class="sb-tag">Trust Response</div>
+      <div class="sb-title">Champat Rai: "सारे allegations politically motivated"</div>
+      <div class="sb-meta">Internal audit की बात — details public नहीं</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════
+     LAND DEALS SECTION
+═══════════════════════════════ -->
+<div id="land" style="padding-top:20px;">
+<div class="sec-hdr">
+  <h2>🏗️ Land Deals — ज़मीन का खेल</h2>
+  <div class="rule"></div>
+  <div class="badge">Documented · AAP MP</div>
+</div>
+
+<div style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 20px;margin-bottom:20px;font-size:13.5px;border-left:4px solid var(--orange);">
+  <strong>⚠️ Important:</strong> ये land deals AAP MP Sanjay Singh और SP ने raise किए हैं। Champat Rai ने सब deny किया है। SIT इनकी भी जाँच कर रही है। Documents public record से लिए गए हैं।
+</div>
+
+<table class="amount-table">
+  <tr><th>Deal</th><th>असली कीमत (Alleged)</th><th>Trust ने खरीदी</th><th>फ़र्क</th><th>Status</th></tr>
+  <tr>
+    <td><strong>Bag Bjaisi village land</strong><br><span style="font-size:11px;color:var(--muted)">Kusum Pathak → Sultan Ansari → Trust</span></td>
+    <td class="amt">₹2 Crore</td>
+    <td class="amt">₹18.5 Crore</td>
+    <td class="amt">+825%</td>
+    <td class="status">SIT Investigating · Trust denies</td>
+  </tr>
+  <tr>
+    <td><strong>Gata No. 247</strong><br><span style="font-size:11px;color:var(--muted)">Nazul land — April 2024</span></td>
+    <td class="amt">₹2.92 Crore</td>
+    <td class="amt">₹24 Crore</td>
+    <td class="amt">+722%</td>
+    <td class="status">AAP MP ने SDM certificate दिखाया</td>
+  </tr>
+  <tr>
+    <td><strong>Devendra Prasad Acharya land</strong><br><span style="font-size:11px;color:var(--muted)">Feb 2020 → 7 months later</span></td>
+    <td class="amt">₹20 Lakh</td>
+    <td class="amt">₹2.5 Crore</td>
+    <td class="amt">+1150%</td>
+    <td class="status">Alleged · Mayor's nephew involved</td>
+  </tr>
+  <tr>
+    <td><strong>Brijmohan Das land</strong><br><span style="font-size:11px;color:var(--muted)">May 2021</span></td>
+    <td class="amt">₹92.5 Lakh</td>
+    <td class="amt">₹5.6 Crore</td>
+    <td class="amt">+505%</td>
+    <td class="status">Alleged · Under SIT review</td>
+  </tr>
+  <tr>
+    <td><strong>Land near Railway Station</strong><br><span style="font-size:11px;color:var(--muted)">Nov 2023</span></td>
+    <td class="amt">₹9 Crore</td>
+    <td class="amt">₹55.47 Crore</td>
+    <td class="amt">+516%</td>
+    <td class="status">Govt acquired same area @ ₹4.4L/biswa · Trust paid ₹47L/biswa</td>
+  </tr>
+</table>
+
+<div class="opinion-box">
+  <div class="op-label">AAP MP Sanjay Singh का बयान (SIT को दिए documents में)</div>
+  <div class="op-text">"धार्मिक कार्यों के लिए लोग आमतौर पर ज़मीन दान करते हैं या रियायती दर पर देते हैं। यहाँ Trust ने ज़मीन हज़ारों गुना बढ़ी कीमत पर खरीदी।"</div>
+  <div class="op-attr">— AAP MP Sanjay Singh, SIT को दिए 11 documents में</div>
+</div>
+
+<div style="background:#f0fdf4;border:1px solid #86efac;padding:16px 20px;margin-bottom:28px;font-size:13.5px;border-left:4px solid #16a34a;">
+  <strong>✅ Trust का पक्ष:</strong> Champat Rai ने कहा — "SC verdict के बाद पूरे देश से लोग Ayodhya में ज़मीन खरीदने आए और prices naturally बढ़ीं। Trust ने हमेशा open market rate से <em>कम</em> में ज़मीन खरीदी। सभी deals transparent थीं।"
+</div>
+</div>
+
+<!-- ═══════════════════════════════
+     VHP HISTORY
+═══════════════════════════════ -->
+<div id="vhp" style="padding-top:20px;">
+<div class="sec-hdr">
+  <h2>📁 VHP का पुराना इतिहास — 1980s से आरोप</h2>
+  <div class="rule"></div>
+  <div class="badge">The Wire Investigation</div>
+</div>
+
+<div class="allegations-grid">
+  <div class="alleg-card" onclick="toggleAlleg(this)">
+    <div class="alleg-num">A</div>
+    <div class="alleg-tag">Nirmohi Akhara · Documented Allegation</div>
+    <div class="alleg-title">VHP पर ₹1,400 Crore हड़पने का आरोप — Nirmohi Akhara</div>
+    <div class="alleg-lead">1980s-90s में Ram Mandir के नाम पर VHP ने जो donations collect किए — उनका use temple के लिए नहीं हुआ।</div>
+    <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+    <div class="alleg-body">
+      <p>Nirmohi Akhara के spokesperson Mahant Sitaram ने explicitly आरोप लगाया:</p>
+      <blockquote>"VHP ने 1980s और 90s में Ram Mandir के नाम पर ₹1,400 crore से ज़्यादा collect किए। लेकिन वो पैसा temple के लिए नहीं लगाया गया।"</blockquote>
+      <p style="margin-top:10px;">Akhara का कहना था: <strong>VHP ने donations से अपनी organizational infrastructure बनाई, private buildings बनाए और political campaigns fund किए।</strong></p>
+      <blockquote>"उन्होंने Ram Mandir के नाम पर notes और votes दोनों collect किए — लेकिन मंदिर के लिए एक पैसा नहीं लगाया।" — Mahant Sitaram</blockquote>
+      <span class="src">📰 Source: The Wire — "Ayodhya's Ram Temple And Six Past Charges of Alleged Corruption"</span>
+    </div>
+  </div>
+
+  <div class="alleg-card" onclick="toggleAlleg(this)">
+    <div class="alleg-num">B</div>
+    <div class="alleg-tag">Criminal FIR · Forgery Case</div>
+    <div class="alleg-title">Naya Anand Bhavan Temple की ज़मीन — Forgery से Trust को बेची</div>
+    <div class="alleg-lead">एक temple priest ने forged documents से एक ancient temple की property Ram Mandir Trust को ₹6 Crore में बेची — जिसकी उसके पास ownership थी ही नहीं।</div>
+    <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+    <div class="alleg-body">
+      <p>The Wire की report के अनुसार, local temple priest <strong>Ramakant Pathak</strong> और एक revenue official ने मिलकर <strong>Naya Anand Bhavan Temple</strong> की property Trust को बेची।</p>
+      <p style="margin-top:10px;">लेकिन court ने पहले ही — misconduct के कारण — Pathak से property ownership छीन ली थी। फिर भी उसने forged documents बनाए और Trust को ₹6 Crore में property बेची।</p>
+      <p style="margin-top:10px;color:#d97706;font-weight:600;">FIR दर्ज हुई। Case में Trust के procurement process पर भी सवाल उठे।</p>
+      <span class="src">📰 Source: The Wire — Ram Mandir Corruption charges investigation</span>
+    </div>
+  </div>
+
+  <div class="alleg-card" onclick="toggleAlleg(this)">
+    <div class="alleg-num">C</div>
+    <div class="alleg-tag">Fake UPI Scam · 2024</div>
+    <div class="alleg-title">Consecration Ceremony के समय — Fake Donation Racket</div>
+    <div class="alleg-lead">Ram Mandir consecration के दौरान fake UPI QR codes से devotees को ठगा गया। VHP ने खुद UP Police में complaint की।</div>
+    <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+    <div class="alleg-body">
+      <p>January 2024 में, Ram Mandir की Pran Pratishtha के दौरान, <strong>fraudsters ने fake UPI IDs</strong> social media पर share कीं — "Ram Mandir Ayodhya Chanda" के नाम पर।</p>
+      <p style="margin-top:10px;">VHP ने खुद UP DGP को formal complaint लिखी। VHP National Spokesperson Vinod Bansal ने कहा: <em>"Trust ने किसी को भी funds collect करने का authorization नहीं दिया।"</em></p>
+      <p style="margin-top:10px;">यह scam Trust की करोड़ों रुपए की official donation drive के <strong>parallel चल रहा था</strong> — जिसमें devotees confuse हो गए।</p>
+      <span class="src">📰 Source: Big News Network · ANI · January 2024</span>
+    </div>
+  </div>
+
+  <div class="alleg-card" onclick="toggleAlleg(this)">
+    <div class="alleg-num">D</div>
+    <div class="alleg-tag">Political Angle</div>
+    <div class="alleg-title">BJP के अपने नेताओं में दरार — Yogi vs Nripendra Misra</div>
+    <div class="alleg-lead">एक तरफ CM Yogi "conspiracy" कह रहे हैं — दूसरी तरफ Trust के construction head "Open Robbery" बोल रहे हैं।</div>
+    <button class="expand-btn">विस्तार से पढ़ें ▼</button>
+    <div class="alleg-body">
+      <p><strong>CM Yogi Adityanath (June 19, 2026):</strong> "Ayodhya को target किया जा रहा है। यह एक conspiracy है।"</p>
+      <p style="margin-top:10px;"><strong>Nripendra Misra (Trust Construction Head, June 2026):</strong> "Temple की surveillance और vigilance systems पूरी तरह fail हुईं। कुछ न कुछ malpractice हुई।"</p>
+      <blockquote>दोनों एक ही party और establishment से हैं — फिर भी diametrically opposite positions।</blockquote>
+      <p style="margin-top:10px;">Misra के बेटे Saket Misra BJP MLC हैं। यानी यह internal fracture purely opposition का नहीं है।</p>
+      <span class="src">📰 Source: The Wire — "UP CM Says 'Conspiracy'...Nripendra Misra Says 'Open Robbery'" · June 2026</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════
+     TIMELINE
+═══════════════════════════════ -->
+<div id="timeline" style="padding-top:20px;">
+<div class="sec-hdr">
+  <h2>📅 Timeline — कब क्या हुआ</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="tl-wrap">
+  <div class="tl-item"><div class="tl-year">1986–90s</div><div><div class="tl-title">VHP ने ₹1,400+ Crore Ram Mandir के नाम पर collect किए — Nirmohi Akhara का allegation</div><div class="tl-text">Donations का use temple के लिए नहीं — VHP की buildings और political campaigns के लिए। Akhara vs VHP conflict शुरू।</div><div class="tl-src">Source: The Wire Investigation</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">Nov 2019</div><div><div class="tl-title">Supreme Court का ऐतिहासिक फैसला — Ram Mandir की ज़मीन Hindu side को</div><div class="tl-text">5-0 verdict। Ayodhya की ज़मीन के prices रातों-रात skyrocket। यहीं से land deal controversy की जड़ें।</div><div class="tl-src">Supreme Court Records</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">Feb 2020</div><div><div class="tl-title">Shri Ram Janmabhoomi Teerth Kshetra Trust गठित · Champat Rai General Secretary</div><div class="tl-text">Central Government ने Trust set up किया। 67 acres के अलावा और ज़मीन खरीदने का अधिकार मिला।</div><div class="tl-src">Government Gazette</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">2020–21</div><div><div class="tl-title">Alleged Inflated Land Deals शुरू — ₹2 Cr की ज़मीन ₹18.5 Cr में (10 minutes में)</div><div class="tl-text">AAP MP Sanjay Singh के documents के अनुसार, कई ज़मीनें market rate से कई गुना ज़्यादा कीमत पर खरीदी गईं।</div><div class="tl-src">Public land records · AAP MP documents to SIT</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">Jan 2024</div><div><div class="tl-title">Pran Pratishtha · और साथ में Fake Donation Scam</div><div class="tl-text">Consecration ceremony के दौरान fake UPI QR codes से devotees को ठगा गया। VHP ने UP Police में complaint की।</div><div class="tl-src">ANI · VHP Statement · January 2024</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">June 2026</div><div><div class="tl-title">Donation Box Scam Expose — Employee के घर ₹10 Lakh गोबर में मिले</div><div class="tl-text">Akhilesh Yadav ने donations गायब होने के allegations लगाए। Employee के घर छापे में cash मिला। FIR दर्ज।</div><div class="tl-src">Multiple news agencies · June 2026</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">June 13, 2026</div><div><div class="tl-title">UP Government ने SIT गठित की</div><div class="tl-text">3-member SIT: IAS Vijay Vishwas Pant, IPS Kiran S., Finance Secretary Neel Ratan। Bank records माँगे, 70-80 लोगों से पूछताछ।</div><div class="tl-src">UP Government notification · Wikipedia</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">June 19, 2026</div><div><div class="tl-title">Yogi "Conspiracy" — Nripendra Misra "Open Robbery" · BJP में fracture</div><div class="tl-text">Trust के अपने construction head ने malpractice स्वीकार किया। CM ने conspiracy theory दी। Internal contradiction सामने आया।</div><div class="tl-src">The Wire · June 2026</div></div></div>
+
+  <div class="tl-item"><div class="tl-year">June 26, 2026</div><div><div class="tl-title">SIT Financial Audit Phase · Bank records analysis जारी</div><div class="tl-text">Investigation financial audit phase में। 7 banks के records examine हो रहे हैं। AAP MP ने 11 documents SIT को सौंपे।</div><div class="tl-src">Telangana Today · Impressive Times · June 2026</div></div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════
+     VERDICT
+═══════════════════════════════ -->
+<div id="verdict" style="padding-top:20px;">
+<div class="sec-hdr">
+  <h2>✅ Verified vs Alleged vs Denied</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="verdict-wrap">
+  <div class="verdict-col confirmed">
+    <div class="v-label">✓ Confirmed — Evidence है</div>
+    <ul>
+      <li>Temple employee के घर ₹10 Lakh मिले — FIR दर्ज, 8 named</li>
+      <li>Champat Rai के driver Tinnu Yadav prime suspect — Wikipedia documented</li>
+      <li>UP Government ने SIT गठित की — June 13, 2026</li>
+      <li>Nripendra Misra ने malpractice acknowledge किया</li>
+      <li>Fake UPI scam — VHP ने खुद police complaint की</li>
+      <li>Naya Anand Bhavan — Forgery FIR registered</li>
+    </ul>
+  </div>
+  <div class="verdict-col alleged">
+    <div class="v-label">? Alleged — SIT जाँच रही है</div>
+    <ul>
+      <li>Land deals में हज़ारों % markup — Champat Rai denies</li>
+      <li>1,250 कीमती ईंटें गायब — SIT confirming</li>
+      <li>VHP ने ₹1,400 Cr donations use नहीं किए — Nirmohi Akhara claim</li>
+      <li>Champat Rai की personal involvement — Investigation pending</li>
+      <li>कितना total amount missing — अभी establish नहीं</li>
+    </ul>
+  </div>
+  <div class="verdict-col denied">
+    <div class="v-label">✗ Trust ने Deny किया</div>
+    <ul>
+      <li>Land deals inflated थे — "Market price से कम खरीदा"</li>
+      <li>Donations mismanaged — "Internal audit clean"</li>
+      <li>Champat Rai की कोई involvement — "Politically motivated"</li>
+      <li>Systemic corruption — "कुछ employees की करतूत"</li>
+    </ul>
+  </div>
+</div>
+
+<div style="background:#eff6ff;border:1px solid #bfdbfe;padding:16px 20px;border-left:4px solid #3b82f6;font-size:13.5px;margin-bottom:32px;">
+  <strong>📌 Important Note:</strong> यह investigation अभी चल रही है। SIT का final report आना बाकी है। इस documentary में दोनों sides के facts present किए गए हैं। आरोपी तब तक निर्दोष माने जाते हैं जब तक court में दोषी साबित न हों। Read original sources for complete picture.
+</div>
+</div>
+
+<!-- SOURCES -->
+<div id="sources" style="padding-top:20px;">
+<div class="sec-hdr">
+  <h2>📚 Sources — इन्हें खुद पढ़ें</h2>
+  <div class="rule"></div>
+</div>
+<div class="sources-grid">
+  <div class="src-card"><div class="src-type">Investigative</div><strong>The Wire</strong><br>"Ayodhya's Ram Temple And Six Past Charges of Alleged Corruption"<br><span style="color:var(--muted);font-size:11px;">thewire.in · June 2026</span></div>
+  <div class="src-card"><div class="src-type">Investigative</div><strong>The Wire</strong><br>"Ram Temple Funds Scam: UP CM Says 'Insult to Ayodhya'...Nripendra Misra Says 'Open Robbery'"<br><span style="color:var(--muted);font-size:11px;">thewire.in · June 2026</span></div>
+  <div class="src-card"><div class="src-type">Encyclopedia</div><strong>Wikipedia</strong><br>Champat Rai — Shri Ram Janmabhoomi Teerth Kshetra<br><span style="color:var(--muted);font-size:11px;">en.wikipedia.org · Updated June 2026</span></div>
+  <div class="src-card"><div class="src-type">Investigation Report</div><strong>Telangana Today</strong><br>"Ram Temple Donation Scam Probe Enters Financial Audit Phase"<br><span style="color:var(--muted);font-size:11px;">telanganatoday.com · June 2026</span></div>
+  <div class="src-card"><div class="src-type">AAP Documents</div><strong>Impressive Times</strong><br>"Sanjay Singh Submits Evidence of Land Scam to SIT"<br><span style="color:var(--muted);font-size:11px;">impressivetimes.com · June 2026</span></div>
+  <div class="src-card"><div class="src-type">Analysis</div><strong>NewsGram</strong><br>"What Was the Ram Mandir Land Scam? 5-Year-Old Case Brought Into Light"<br><span style="color:var(--muted);font-size:11px;">newsgram.com · June 2026</span></div>
+</div>
+</div>
+
+</div>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="fn"><span class="the">The</span> Hidden Record</div>
+        <p>Ram Mandir Special Edition — June 2026<br><br>
+        यह documentary published news reports, documented allegations और official records पर based है। हमने दोनों sides — allegations और denials — दोनों present किए हैं।<br><br>
+        SIT investigation ongoing है। Final truth वहीं से आएगा।<br>
+        <strong style="color:#9ca3af">Educational purpose only.</strong></p>
+      </div>
+      <div class="footer-col">
+        <h4>Sections</h4>
+        <ul>
+          <li>💰 Donation Scam</li>
+          <li>🏗️ Land Deals</li>
+          <li>📁 VHP History</li>
+          <li>📅 Timeline</li>
+          <li>✅ Fact Check</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Key Sources</h4>
+        <ul>
+          <li>The Wire</li>
+          <li>Wikipedia</li>
+          <li>Telangana Today</li>
+          <li>UP SIT Records</li>
+          <li>AAP MP Documents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <strong style="color:#9ca3af">The Hidden Record</strong> · Ram Mandir Special Investigation · June 2026 · Both Sides Presented · Educational Only
+  </div>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  document.getElementById('rb').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+});
+
+// Timeline animation
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*80);});
+},{threshold:0.15});
+document.querySelectorAll('.tl-item').forEach(el=>io.observe(el));
+
+// Scroll to section
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
+
+// Toggle allegation cards
+function toggleAlleg(card){
+  const body=card.querySelector('.alleg-body');
+  const btn=card.querySelector('.expand-btn');
+  const open=body.style.display==='block';
+  body.style.display=open?'none':'block';
+  if(btn)btn.textContent=open?'विस्तार से पढ़ें ▼':'बंद करें ▲';
+}
+</script>
+</body>
+</html>
